@@ -7,6 +7,400 @@
 use super::*;
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
+pub struct LDRSW_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDRSW_Rt_ADDR_UIMM12 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(12)]
+    pub imm12: u32,
+    #[bits(10)]
+    pub _op_22: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDUR_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDUR_Ft_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDURB_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDURH_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDURSB_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDURSH_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDURSW_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_SHLIMM_PRED {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_imm5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(9)]
+    pub _op_13: u32,
+    #[bits(2)]
+    pub sve_tszh: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zm_5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(19)]
+    pub _op_13: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSL_SVE_Zd_S_B_SVE_Pg3_P_M_SVE_Zd_S_B_SVE_Zm_5_S_D {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zm_5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(19)]
+    pub _op_13: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSL_SVE_Zd_SVE_Zn_SVE_Zm_16 {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub sve_zm_16: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSL_SVE_Zd_SVE_Zn_SVE_SHLIMM_UNPRED {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub imm5: u32,
+    #[bits(1)]
+    pub _op_21: u32,
+    #[bits(2)]
+    pub sve_tszh: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSLR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zm_5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(19)]
+    pub _op_13: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSLV_Rd_Rn_Rm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_SHRIMM_PRED {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_imm5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(9)]
+    pub _op_13: u32,
+    #[bits(2)]
+    pub sve_tszh: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zm_5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(19)]
+    pub _op_13: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSR_SVE_Zd_S_B_SVE_Pg3_P_M_SVE_Zd_S_B_SVE_Zm_5_S_D {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zm_5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(19)]
+    pub _op_13: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSR_SVE_Zd_SVE_Zn_SVE_Zm_16 {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub sve_zm_16: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSR_SVE_Zd_SVE_Zn_SVE_SHRIMM_UNPRED {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub imm5: u32,
+    #[bits(1)]
+    pub _op_21: u32,
+    #[bits(2)]
+    pub sve_tszh: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSRR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
+    #[bits(5)]
+    pub sve_zd: u32,
+    #[bits(5)]
+    pub sve_zm_5: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(19)]
+    pub _op_13: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LSRV_Rd_Rn_Rm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct MADD_Rd_Rn_Rm_Ra {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(5)]
+    pub ra: u32,
+    #[bits(1)]
+    pub _op_15: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct MOV_SME_ZA_HV_idx_dest_SVE_Pg3_SVE_Zn {
+    #[bits(4)]
+    pub imm4_0: u32,
+    #[bits(1)]
+    pub _op_4: u32,
+    #[bits(5)]
+    pub sve_zn: u32,
+    #[bits(3)]
+    pub sve_pg3: u32,
+    #[bits(2)]
+    pub sme_rv: u32,
+    #[bits(1)]
+    pub sme_v: u32,
+    #[bits(1)]
+    pub sme_q: u32,
+    #[bits(5)]
+    pub _op_17: u32,
+    #[bits(2)]
+    pub sme_size_22: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct MOV_SME_ZA_HV_idx_destxN_SME_Znx2 {
+    #[bits(3)]
+    pub imm3_0: u32,
+    #[bits(3)]
+    pub _op_3: u32,
+    #[bits(4)]
+    pub sme_zn2: u32,
+    #[bits(3)]
+    pub _op_10: u32,
+    #[bits(2)]
+    pub sme_rv: u32,
+    #[bits(1)]
+    pub sme_v: u32,
+    #[bits(16)]
+    pub _op_16: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct MOV_SME_ZA_array_off3_0_SME_Znx2 {
+    #[bits(3)]
+    pub imm3_0: u32,
+    #[bits(3)]
+    pub _op_3: u32,
+    #[bits(4)]
+    pub sme_zn2: u32,
+    #[bits(3)]
+    pub _op_10: u32,
+    #[bits(2)]
+    pub sme_rv: u32,
+    #[bits(17)]
+    pub _op_15: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
 pub struct MOV_SME_ZA_HV_idx_destxN_SME_Znx4 {
     #[bits(3)]
     pub imm3_0: u32,
@@ -1626,398 +2020,4 @@ pub struct SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_H_SME_Zmx2_S_H {
     pub sme_zm2: u32,
     #[bits(11)]
     pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_SME_ZA_array_off3_0_S_S_SME_Znx4_S_H_SME_Zmx4_S_H {
-    #[bits(3)]
-    pub imm3_0: u32,
-    #[bits(4)]
-    pub _op_3: u32,
-    #[bits(3)]
-    pub sme_zn4: u32,
-    #[bits(3)]
-    pub _op_10: u32,
-    #[bits(2)]
-    pub sme_rv: u32,
-    #[bits(3)]
-    pub _op_15: u32,
-    #[bits(3)]
-    pub sme_zm4: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_SVE_Zd_S_S_SVE_Zn_S_H_SVE_Zm_16_S_H {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_SVE_Zd_SVE_Zn_SVE_Zm3_19_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(3)]
-    pub sve_imm3: u32,
-    #[bits(2)]
-    pub imm2_19: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_SVE_Zd_SVE_Zn_SVE_Zm3_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_SVE_Zd_SVE_Zn_SVE_Zm4_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_Vd_Vn_Vm {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SDOT_Vd_Vn_Em {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMADDL_Rd_Rn_Rm_Ra {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(5)]
-    pub ra: u32,
-    #[bits(1)]
-    pub _op_15: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULH_Rd_Rn_Rm {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zm_5: u32,
-    #[bits(3)]
-    pub sve_pg3: u32,
-    #[bits(19)]
-    pub _op_13: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULH_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULL_Vd_Vn_Vm {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULL_Vd_Vn_Em16 {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULL2_Vd_Vn_Vm {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULL2_Vd_Vn_Em16 {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULLB_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(1)]
-    pub _op_10: u32,
-    #[bits(1)]
-    pub sve_i3l: u32,
-    #[bits(4)]
-    pub _op_12: u32,
-    #[bits(3)]
-    pub sve_imm3: u32,
-    #[bits(2)]
-    pub sve_i3h2: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULLB_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(1)]
-    pub _op_10: u32,
-    #[bits(1)]
-    pub sve_i3l: u32,
-    #[bits(4)]
-    pub _op_12: u32,
-    #[bits(4)]
-    pub sve_imm4: u32,
-    #[bits(1)]
-    pub sve_i2h: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULLB_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULLT_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(1)]
-    pub _op_10: u32,
-    #[bits(1)]
-    pub sve_i3l: u32,
-    #[bits(4)]
-    pub _op_12: u32,
-    #[bits(3)]
-    pub sve_imm3: u32,
-    #[bits(2)]
-    pub sve_i3h2: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULLT_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(1)]
-    pub _op_10: u32,
-    #[bits(1)]
-    pub sve_i3l: u32,
-    #[bits(4)]
-    pub _op_12: u32,
-    #[bits(4)]
-    pub sve_imm4: u32,
-    #[bits(1)]
-    pub sve_i2h: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct SMULLT_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    #[bits(5)]
-    pub sve_zd: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub sve_zm_16: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct STP_Rt_Rt2_ADDR_SIMM7 {
-    #[bits(5)]
-    pub rt: u32,
-    #[bits(5)]
-    pub _op_5: u32,
-    #[bits(5)]
-    pub rt2: u32,
-    #[bits(7)]
-    pub imm7: u32,
-    #[bits(2)]
-    pub _op_22: u32,
-    #[bits(1)]
-    pub index2: u32,
-    #[bits(7)]
-    pub _op_25: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S {
-    #[bits(5)]
-    pub rt: u32,
-    #[bits(5)]
-    pub _op_5: u32,
-    #[bits(5)]
-    pub rt2: u32,
-    #[bits(7)]
-    pub imm7: u32,
-    #[bits(2)]
-    pub _op_22: u32,
-    #[bits(1)]
-    pub index2: u32,
-    #[bits(7)]
-    pub _op_25: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct STP_Ft_Ft2_ADDR_SIMM7 {
-    #[bits(5)]
-    pub rt: u32,
-    #[bits(5)]
-    pub _op_5: u32,
-    #[bits(5)]
-    pub rt2: u32,
-    #[bits(7)]
-    pub imm7: u32,
-    #[bits(2)]
-    pub _op_22: u32,
-    #[bits(1)]
-    pub index2: u32,
-    #[bits(7)]
-    pub _op_25: u32,
 }

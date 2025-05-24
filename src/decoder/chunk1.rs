@@ -7,6 +7,26 @@
 use super::*;
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
+pub struct BFMLSL_SME_ZA_array_off2x2_S_S_SVE_ZnxN_S_H_SME_Zm_S_H {
+    #[bits(2)]
+    pub imm2_0: u32,
+    #[bits(3)]
+    pub _op_2: u32,
+    #[bits(5)]
+    pub sve_zn: u32,
+    #[bits(3)]
+    pub _op_10: u32,
+    #[bits(2)]
+    pub sme_rv: u32,
+    #[bits(1)]
+    pub _op_15: u32,
+    #[bits(4)]
+    pub sme_zm: u32,
+    #[bits(12)]
+    pub _op_20: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
 pub struct BFMLSL_SME_ZA_array_off2x2_SME_Znx2_SME_Zmx2 {
     #[bits(2)]
     pub imm2_0: u32,
@@ -1998,14 +2018,4 @@ pub struct CTERMNE_Rn_Rm {
     pub rm: u32,
     #[bits(11)]
     pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct CTZ_Rd_Rn {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(22)]
-    pub _op_10: u32,
 }

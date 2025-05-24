@@ -138,6 +138,11 @@ pub enum Mnemonic {
     r#eors,
     r#eortb,
     r#eorv,
+    r#fadd,
+    r#fadda,
+    r#faddp,
+    r#faddqv,
+    r#faddv,
     r#fcadd,
     r#fccmp,
     r#fccmpe,
@@ -188,6 +193,8 @@ pub enum Mnemonic {
     r#fmsub,
     r#fmul,
     r#fmulx,
+    r#fsub,
+    r#fsubr,
     r#ldp,
     r#ldpsw,
     r#ldr,
@@ -1984,26 +1991,6 @@ pub struct BFMLSL_SME_ZA_array_off2x2_SME_Znx4_SME_Zm_INDEX3_2 {
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
 pub struct BFMLSL_SME_ZA_array_off2x2_SVE_ZnxN_SME_Zm {
-    #[bits(2)]
-    pub imm2_0: u32,
-    #[bits(3)]
-    pub _op_2: u32,
-    #[bits(5)]
-    pub sve_zn: u32,
-    #[bits(3)]
-    pub _op_10: u32,
-    #[bits(2)]
-    pub sme_rv: u32,
-    #[bits(1)]
-    pub _op_15: u32,
-    #[bits(4)]
-    pub sme_zm: u32,
-    #[bits(12)]
-    pub _op_20: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct BFMLSL_SME_ZA_array_off2x2_S_S_SVE_ZnxN_S_H_SME_Zm_S_H {
     #[bits(2)]
     pub imm2_0: u32,
     #[bits(3)]

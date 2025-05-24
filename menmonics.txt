@@ -28,6 +28,7 @@ cn*
 cs*
 ct*
 eor*
+fad*
 fc*
 fdiv
 fdivr
@@ -35,13 +36,11 @@ fdot
 fdup
 fexpa
 fjcvtzs
-fmopa
-fmops
-fmov
+fmo*
 fmsb
 fmsub
-fmul
-fmulx
+fmul*
+fsub*
 ldp
 ldpsw
 ldr*

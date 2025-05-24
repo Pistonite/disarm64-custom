@@ -5,7 +5,7 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 use super::*;
-impl InsnOpcode for SDOT_Vd_Vn_Vm {
+impl InsnOpcode for SCVTF_SVE_Zd_S_S_SVE_Pg3_P_M_SVE_Zn_S_D {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -13,207 +13,19 @@ impl InsnOpcode for SDOT_Vd_Vn_Vm {
         (*self).into()
     }
 }
-impl SDOT_Vd_Vn_Em {
+impl SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "sdot",
+        mnemonic: "scvtf",
         aliases: &[],
-        opcode: 0xf00e000,
-        mask: 0xbf00f400,
-        class: InsnClass::DOTPRODUCT,
-        feature_set: InsnFeatureSet::DOTPROD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_2S, InsnOperandQualifier::V_4S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_8B, InsnOperandQualifier::V_16B],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Em,
-                class: InsnOperandClass::SIMD_ELEMENT,
-                qualifiers: &[InsnOperandQualifier::S_4B, InsnOperandQualifier::S_4B],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#sdot,
-            operation: Operation::DOTPRODUCT(DOTPRODUCT::SDOT_Vd_Vn_Em(SDOT_Vd_Vn_Em::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for SDOT_Vd_Vn_Em {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMADDL_Rd_Rn_Rm_Ra {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smaddl",
-        aliases: &[],
-        opcode: 0x9b200000,
-        mask: 0xffe08000,
-        class: InsnClass::DP_3SRC,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Ra,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Ra,
-                    lsb: 10,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ALIAS.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smaddl,
-            operation: Operation::DP_3SRC(DP_3SRC::SMADDL_Rd_Rn_Rm_Ra(SMADDL_Rd_Rn_Rm_Ra::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for SMADDL_Rd_Rn_Rm_Ra {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULH_Rd_Rn_Rm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smulh",
-        aliases: &[],
-        opcode: 0x9b407c00,
-        mask: 0xffe0fc00,
-        class: InsnClass::DP_3SRC,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smulh,
-            operation: Operation::DP_3SRC(DP_3SRC::SMULH_Rd_Rn_Rm(SMULH_Rd_Rn_Rm::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for SMULH_Rd_Rn_Rm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smulh",
-        aliases: &[],
-        opcode: 0x4120000,
-        mask: 0xff3fe000,
-        class: InsnClass::SVE_SIZE_BHSD,
+        opcode: 0x6552a000,
+        mask: 0xffffe000,
+        class: InsnClass::SVE_MISC,
         feature_set: InsnFeatureSet::SVE,
         operands: &[
             InsnOperand {
                 kind: InsnOperandKind::SVE_Zd,
                 class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
+                qualifiers: &[InsnOperandQualifier::S_H],
                 bit_fields: &[BitfieldSpec {
                     bitfield: InsnBitField::SVE_Zd,
                     lsb: 0,
@@ -223,12 +35,923 @@ impl SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
             InsnOperand {
                 kind: InsnOperandKind::SVE_Pg3,
                 class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Pg3,
+                    lsb: 10,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zn,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::SVE_MISC(SVE_MISC::SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H(
+                SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_D {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x6556a000,
+        mask: 0xffffe000,
+        class: InsnClass::SVE_MISC,
+        feature_set: InsnFeatureSet::SVE,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Pg3,
+                    lsb: 10,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zn,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::SVE_MISC(SVE_MISC::SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_D(
+                SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_D::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_D {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_SVE_Zd_S_D_SVE_Pg3_P_M_SVE_Zn_S_D {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x65d6a000,
+        mask: 0xffffe000,
+        class: InsnClass::SVE_MISC,
+        feature_set: InsnFeatureSet::SVE,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Pg3,
+                    lsb: 10,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zn,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::SVE_MISC(SVE_MISC::SCVTF_SVE_Zd_S_D_SVE_Pg3_P_M_SVE_Zn_S_D(
+                SCVTF_SVE_Zd_S_D_SVE_Pg3_P_M_SVE_Zn_S_D::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_SVE_Zd_S_D_SVE_Pg3_P_M_SVE_Zn_S_D {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Fd_Rn_FBITS {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x1ec20000,
+        mask: 0x7fff0000,
+        class: InsnClass::FLOAT2FIX,
+        feature_set: InsnFeatureSet::FP_F16,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Fd,
+                class: InsnOperandClass::FP_REG,
+                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rn,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::FBITS,
+                class: InsnOperandClass::IMMEDIATE,
                 qualifiers: &[
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
+                    InsnOperandQualifier::imm_1_32,
+                    InsnOperandQualifier::imm_1_64,
                 ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::scale,
+                    lsb: 10,
+                    width: 6,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_FPTYPE_FIELD.bits() | InsnFlags::HAS_SF_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::FLOAT2FIX(FLOAT2FIX::SCVTF_Fd_Rn_FBITS(SCVTF_Fd_Rn_FBITS::from(
+                bits,
+            ))),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Fd_Rn_FBITS {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x1e020000,
+        mask: 0x7f3f0000,
+        class: InsnClass::FLOAT2FIX,
+        feature_set: InsnFeatureSet::FP,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Fd,
+                class: InsnOperandClass::FP_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_S,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rn,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::W,
+                    InsnOperandQualifier::W,
+                    InsnOperandQualifier::X,
+                    InsnOperandQualifier::X,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::FBITS,
+                class: InsnOperandClass::IMMEDIATE,
+                qualifiers: &[
+                    InsnOperandQualifier::imm_1_32,
+                    InsnOperandQualifier::imm_1_32,
+                    InsnOperandQualifier::imm_1_64,
+                    InsnOperandQualifier::imm_1_64,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::scale,
+                    lsb: 10,
+                    width: 6,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_FPTYPE_FIELD.bits() | InsnFlags::HAS_SF_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::FLOAT2FIX(FLOAT2FIX::SCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32(
+                SCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Fd_Rn {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x1ee20000,
+        mask: 0x7ffffc00,
+        class: InsnClass::FLOAT2INT,
+        feature_set: InsnFeatureSet::FP_F16,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Fd,
+                class: InsnOperandClass::FP_REG,
+                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rn,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_FPTYPE_FIELD.bits() | InsnFlags::HAS_SF_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::FLOAT2INT(FLOAT2INT::SCVTF_Fd_Rn(SCVTF_Fd_Rn::from(bits))),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Fd_Rn {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Fd_S_D_Rn_W {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x1e220000,
+        mask: 0x7f3ffc00,
+        class: InsnClass::FLOAT2INT,
+        feature_set: InsnFeatureSet::FP,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Fd,
+                class: InsnOperandClass::FP_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_S,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rn,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::W,
+                    InsnOperandQualifier::W,
+                    InsnOperandQualifier::X,
+                    InsnOperandQualifier::X,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_FPTYPE_FIELD.bits() | InsnFlags::HAS_SF_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::FLOAT2INT(FLOAT2INT::SCVTF_Fd_S_D_Rn_W(SCVTF_Fd_S_D_Rn_W::from(
+                bits,
+            ))),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Fd_S_D_Rn_W {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Vd_Vn {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0xe21d800,
+        mask: 0xbfbffc00,
+        class: InsnClass::ASIMDMISC,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASIMDMISC(ASIMDMISC::SCVTF_Vd_Vn(SCVTF_Vd_Vn::from(bits))),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Vd_Vn {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Sd_Sn {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x5e21d800,
+        mask: 0xffbffc00,
+        class: InsnClass::ASISDMISC,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Sd,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Sn,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMD_SCALAR_SIZE.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASISDMISC(ASISDMISC::SCVTF_Sd_Sn(SCVTF_Sd_Sn::from(bits))),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Sd_Sn {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Vd_V_4H_Vn_V_4H {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0xe79d800,
+        mask: 0xbffffc00,
+        class: InsnClass::ASIMDMISC,
+        feature_set: InsnFeatureSet::SIMD_F16,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[InsnOperandQualifier::V_4H, InsnOperandQualifier::V_8H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[InsnOperandQualifier::V_4H, InsnOperandQualifier::V_8H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASIMDMISC(ASIMDMISC::SCVTF_Vd_V_4H_Vn_V_4H(
+                SCVTF_Vd_V_4H_Vn_V_4H::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Vd_V_4H_Vn_V_4H {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Sd_S_H_Sn_S_H {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x5e79d800,
+        mask: 0xfffffc00,
+        class: InsnClass::ASISDMISC,
+        feature_set: InsnFeatureSet::SIMD_F16,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Sd,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Sn,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMD_SCALAR_SIZE.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASISDMISC(ASISDMISC::SCVTF_Sd_S_H_Sn_S_H(
+                SCVTF_Sd_S_H_Sn_S_H::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Sd_S_H_Sn_S_H {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Vd_Vn_IMM_VLSR {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0xf10e400,
+        mask: 0xbf90fc00,
+        class: InsnClass::ASIMDSHF,
+        feature_set: InsnFeatureSet::SIMD_F16,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[InsnOperandQualifier::V_4H, InsnOperandQualifier::V_8H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[InsnOperandQualifier::V_4H, InsnOperandQualifier::V_8H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::IMM_VLSR,
+                class: InsnOperandClass::IMMEDIATE,
+                qualifiers: &[InsnOperandQualifier::V_4H, InsnOperandQualifier::V_8H],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASIMDSHF(ASIMDSHF::SCVTF_Vd_Vn_IMM_VLSR(
+                SCVTF_Vd_Vn_IMM_VLSR::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Vd_Vn_IMM_VLSR {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0xf00e400,
+        mask: 0xbf80fc00,
+        class: InsnClass::ASIMDSHF,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::IMM_VLSR,
+                class: InsnOperandClass::IMMEDIATE,
+                qualifiers: &[
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASIMDSHF(ASIMDSHF::SCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S(
+                SCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Sd_Sn_IMM_VLSR {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x5f10e400,
+        mask: 0xff90fc00,
+        class: InsnClass::ASISDSHF,
+        feature_set: InsnFeatureSet::SIMD_F16,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Sd,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Sn,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::IMM_VLSR,
+                class: InsnOperandClass::IMMEDIATE,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASISDSHF(ASISDSHF::SCVTF_Sd_Sn_IMM_VLSR(
+                SCVTF_Sd_Sn_IMM_VLSR::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Sd_Sn_IMM_VLSR {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "scvtf",
+        aliases: &[],
+        opcode: 0x5f00e400,
+        mask: 0xff80fc00,
+        class: InsnClass::ASISDSHF,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Sd,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Sn,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::IMM_VLSR,
+                class: InsnOperandClass::IMMEDIATE,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#scvtf,
+            operation: Operation::ASISDSHF(ASISDSHF::SCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S(
+                SCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for SCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDIV_Rd_Rn_Rm {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdiv",
+        aliases: &[],
+        opcode: 0x1ac00c00,
+        mask: 0x7fe0fc00,
+        class: InsnClass::DP_2SRC,
+        feature_set: InsnFeatureSet::V8,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rd,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rn,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rm,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rm,
+                    lsb: 16,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdiv,
+            operation: Operation::DP_2SRC(DP_2SRC::SDIV_Rd_Rn_Rm(SDIV_Rd_Rn_Rm::from(bits))),
+        }
+    }
+}
+impl InsnOpcode for SDIV_Rd_Rn_Rm {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDIV_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdiv",
+        aliases: &[],
+        opcode: 0x4940000,
+        mask: 0xffbfe000,
+        class: InsnClass::SVE_SIZE_SD,
+        feature_set: InsnFeatureSet::SVE,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M, InsnOperandQualifier::P_M],
                 bit_fields: &[BitfieldSpec {
                     bitfield: InsnBitField::SVE_Pg3,
                     lsb: 10,
@@ -238,12 +961,7 @@ impl SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
             InsnOperand {
                 kind: InsnOperandKind::SVE_Zd,
                 class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
                 bit_fields: &[BitfieldSpec {
                     bitfield: InsnBitField::SVE_Zd,
                     lsb: 0,
@@ -253,12 +971,7 @@ impl SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
             InsnOperand {
                 kind: InsnOperandKind::SVE_Zm_5,
                 class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
                 bit_fields: &[BitfieldSpec {
                     bitfield: InsnBitField::SVE_Zm_5,
                     lsb: 5,
@@ -270,90 +983,14 @@ impl SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#smulh,
-            operation: Operation::SVE_SIZE_BHSD(
-                SVE_SIZE_BHSD::SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5(
-                    SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5::from(bits),
-                ),
-            ),
-        }
-    }
-}
-impl InsnOpcode for SMULH_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULH_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smulh",
-        aliases: &[],
-        opcode: 0x4206800,
-        mask: 0xff20fc00,
-        class: InsnClass::SVE_SIZE_BHSD,
-        feature_set: InsnFeatureSet::SVE2,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm_16,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zm_16,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smulh,
-            operation: Operation::SVE_SIZE_BHSD(SVE_SIZE_BHSD::SMULH_SVE_Zd_SVE_Zn_SVE_Zm_16(
-                SMULH_SVE_Zd_SVE_Zn_SVE_Zm_16::from(bits),
+            mnemonic: Mnemonic::r#sdiv,
+            operation: Operation::SVE_SIZE_SD(SVE_SIZE_SD::SDIV_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5(
+                SDIV_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5::from(bits),
             )),
         }
     }
 }
-impl InsnOpcode for SMULH_SVE_Zd_SVE_Zn_SVE_Zm_16 {
+impl InsnOpcode for SDIV_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -361,895 +998,68 @@ impl InsnOpcode for SMULH_SVE_Zd_SVE_Zn_SVE_Zm_16 {
         (*self).into()
     }
 }
-impl SMULL_Vd_Vn_Vm {
+impl SDIVR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "smull",
+        mnemonic: "sdivr",
         aliases: &[],
-        opcode: 0xe20c000,
-        mask: 0xff20fc00,
-        class: InsnClass::ASIMDDIFF,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_2S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vm,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_2S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smull,
-            operation: Operation::ASIMDDIFF(ASIMDDIFF::SMULL_Vd_Vn_Vm(SMULL_Vd_Vn_Vm::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for SMULL_Vd_Vn_Vm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULL_Vd_Vn_Em16 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smull",
-        aliases: &[],
-        opcode: 0xf00a000,
-        mask: 0xff00f400,
-        class: InsnClass::ASIMDELEM,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_4S, InsnOperandQualifier::V_2D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_4H, InsnOperandQualifier::V_2S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Em16,
-                class: InsnOperandClass::SIMD_ELEMENT,
-                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smull,
-            operation: Operation::ASIMDELEM(ASIMDELEM::SMULL_Vd_Vn_Em16(SMULL_Vd_Vn_Em16::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for SMULL_Vd_Vn_Em16 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULL2_Vd_Vn_Vm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smull2",
-        aliases: &[],
-        opcode: 0x4e20c000,
-        mask: 0xff20fc00,
-        class: InsnClass::ASIMDDIFF,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vm,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smull2,
-            operation: Operation::ASIMDDIFF(ASIMDDIFF::SMULL2_Vd_Vn_Vm(SMULL2_Vd_Vn_Vm::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for SMULL2_Vd_Vn_Vm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULL2_Vd_Vn_Em16 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smull2",
-        aliases: &[],
-        opcode: 0x4f00a000,
-        mask: 0xff00f400,
-        class: InsnClass::ASIMDELEM,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_4S, InsnOperandQualifier::V_2D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_8H, InsnOperandQualifier::V_4S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Em16,
-                class: InsnOperandClass::SIMD_ELEMENT,
-                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smull2,
-            operation: Operation::ASIMDELEM(ASIMDELEM::SMULL2_Vd_Vn_Em16(SMULL2_Vd_Vn_Em16::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for SMULL2_Vd_Vn_Em16 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULLB_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smullb",
-        aliases: &[],
-        opcode: 0x44a0c000,
-        mask: 0xffe0f400,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE2,
+        opcode: 0x4960000,
+        mask: 0xffbfe000,
+        class: InsnClass::SVE_SIZE_SD,
+        feature_set: InsnFeatureSet::SVE,
         operands: &[
             InsnOperand {
                 kind: InsnOperandKind::SVE_Zd,
                 class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm3_11_INDEX,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i3h2,
-                        lsb: 19,
-                        width: 2,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i3l,
-                        lsb: 11,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_imm3,
-                        lsb: 16,
-                        width: 3,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smullb,
-            operation: Operation::SVE_MISC(SVE_MISC::SMULLB_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX(
-                SMULLB_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for SMULLB_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULLB_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smullb",
-        aliases: &[],
-        opcode: 0x44e0c000,
-        mask: 0xffe0f400,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE2,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm4_11_INDEX,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i2h,
-                        lsb: 20,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i3l,
-                        lsb: 11,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_imm4,
-                        lsb: 16,
-                        width: 4,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smullb,
-            operation: Operation::SVE_MISC(SVE_MISC::SMULLB_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX(
-                SMULLB_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for SMULLB_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULLB_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smullb",
-        aliases: &[],
-        opcode: 0x45007000,
-        mask: 0xff20fc00,
-        class: InsnClass::SVE_SIZE_HSD,
-        feature_set: InsnFeatureSet::SVE2,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm_16,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zm_16,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smullb,
-            operation: Operation::SVE_SIZE_HSD(SVE_SIZE_HSD::SMULLB_SVE_Zd_SVE_Zn_SVE_Zm_16(
-                SMULLB_SVE_Zd_SVE_Zn_SVE_Zm_16::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for SMULLB_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULLT_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smullt",
-        aliases: &[],
-        opcode: 0x44a0c400,
-        mask: 0xffe0f400,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE2,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm3_11_INDEX,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i3h2,
-                        lsb: 19,
-                        width: 2,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i3l,
-                        lsb: 11,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_imm3,
-                        lsb: 16,
-                        width: 3,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smullt,
-            operation: Operation::SVE_MISC(SVE_MISC::SMULLT_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX(
-                SMULLT_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for SMULLT_SVE_Zd_SVE_Zn_SVE_Zm3_11_INDEX {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULLT_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smullt",
-        aliases: &[],
-        opcode: 0x44e0c400,
-        mask: 0xffe0f400,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE2,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm4_11_INDEX,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i2h,
-                        lsb: 20,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_i3l,
-                        lsb: 11,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_imm4,
-                        lsb: 16,
-                        width: 4,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smullt,
-            operation: Operation::SVE_MISC(SVE_MISC::SMULLT_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX(
-                SMULLT_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for SMULLT_SVE_Zd_SVE_Zn_SVE_Zm4_11_INDEX {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl SMULLT_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "smullt",
-        aliases: &[],
-        opcode: 0x45007400,
-        mask: 0xff20fc00,
-        class: InsnClass::SVE_SIZE_HSD,
-        feature_set: InsnFeatureSet::SVE2,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm_16,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zm_16,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#smullt,
-            operation: Operation::SVE_SIZE_HSD(SVE_SIZE_HSD::SMULLT_SVE_Zd_SVE_Zn_SVE_Zm_16(
-                SMULLT_SVE_Zd_SVE_Zn_SVE_Zm_16::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for SMULLT_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STP_Rt_Rt2_ADDR_SIMM7 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "stp",
-        aliases: &[],
-        opcode: 0x29000000,
-        mask: 0x7fc00000,
-        class: InsnClass::LDSTPAIR_OFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rt2,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt2,
-                    lsb: 10,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM7,
-                class: InsnOperandClass::ADDRESS,
                 qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm7,
-                        lsb: 15,
-                        width: 7,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index2,
-                        lsb: 24,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#stp,
-            operation: Operation::LDSTPAIR_OFF(LDSTPAIR_OFF::STP_Rt_Rt2_ADDR_SIMM7(
-                STP_Rt_Rt2_ADDR_SIMM7::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STP_Rt_Rt2_ADDR_SIMM7 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "stp",
-        aliases: &[],
-        opcode: 0x28800000,
-        mask: 0x7ec00000,
-        class: InsnClass::LDSTPAIR_INDEXED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
+                    bitfield: InsnBitField::SVE_Zd,
                     lsb: 0,
                     width: 5,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::Rt2,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M, InsnOperandQualifier::P_M],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt2,
+                    bitfield: InsnBitField::SVE_Pg3,
                     lsb: 10,
-                    width: 5,
+                    width: 3,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM7,
-                class: InsnOperandClass::ADDRESS,
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
                 qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm7,
-                        lsb: 15,
-                        width: 7,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index2,
-                        lsb: 24,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#stp,
-            operation: Operation::LDSTPAIR_INDEXED(
-                LDSTPAIR_INDEXED::STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(
-                    STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S::from(bits),
-                ),
-            ),
-        }
-    }
-}
-impl InsnOpcode for STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STP_Ft_Ft2_ADDR_SIMM7 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "stp",
-        aliases: &[],
-        opcode: 0x2d000000,
-        mask: 0x3fc00000,
-        class: InsnClass::LDSTPAIR_OFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
+                    bitfield: InsnBitField::SVE_Zd,
                     lsb: 0,
                     width: 5,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::Ft2,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
+                kind: InsnOperandKind::SVE_Zm_5,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt2,
-                    lsb: 10,
+                    bitfield: InsnBitField::SVE_Zm_5,
+                    lsb: 5,
                     width: 5,
                 }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM7,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm7,
-                        lsb: 15,
-                        width: 7,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index2,
-                        lsb: 24,
-                        width: 1,
-                    },
-                ],
             },
         ],
         flags: InsnFlags::empty(),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#stp,
-            operation: Operation::LDSTPAIR_OFF(LDSTPAIR_OFF::STP_Ft_Ft2_ADDR_SIMM7(
-                STP_Ft_Ft2_ADDR_SIMM7::from(bits),
+            mnemonic: Mnemonic::r#sdivr,
+            operation: Operation::SVE_SIZE_SD(SVE_SIZE_SD::SDIVR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5(
+                SDIVR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5::from(bits),
             )),
         }
     }
 }
-impl InsnOpcode for STP_Ft_Ft2_ADDR_SIMM7 {
+impl InsnOpcode for SDIVR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -1257,99 +1067,19 @@ impl InsnOpcode for STP_Ft_Ft2_ADDR_SIMM7 {
         (*self).into()
     }
 }
-impl STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S {
+impl SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX2 {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "stp",
+        mnemonic: "sdot",
         aliases: &[],
-        opcode: 0x2c800000,
-        mask: 0x3ec00000,
-        class: InsnClass::LDSTPAIR_INDEXED,
-        feature_set: InsnFeatureSet::V8,
+        opcode: 0xc1501000,
+        mask: 0xfff09038,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Ft2,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt2,
-                    lsb: 10,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM7,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm7,
-                        lsb: 15,
-                        width: 7,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index2,
-                        lsb: 24,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#stp,
-            operation: Operation::LDSTPAIR_INDEXED(
-                LDSTPAIR_INDEXED::STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(
-                    STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S::from(bits),
-                ),
-            ),
-        }
-    }
-}
-impl InsnOpcode for STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_SME_ZA_array_off4_SME_ADDR_RI_U4xVL {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xe1200000,
-        mask: 0xffff9c10,
-        class: InsnClass::SME_STR,
-        feature_set: InsnFeatureSet::SME,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SME_ZA_array_off4,
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
                 class: InsnOperandClass::ZA_ACCESS,
-                qualifiers: &[],
+                qualifiers: &[InsnOperandQualifier::S_S],
                 bit_fields: &[
                     BitfieldSpec {
                         bitfield: InsnBitField::SME_Rv,
@@ -1357,42 +1087,59 @@ impl STR_SME_ZA_array_off4_SME_ADDR_RI_U4xVL {
                         width: 2,
                     },
                     BitfieldSpec {
-                        bitfield: InsnBitField::imm4_0,
+                        bitfield: InsnBitField::imm3_0,
                         lsb: 0,
-                        width: 4,
+                        width: 3,
                     },
                 ],
             },
             InsnOperand {
-                kind: InsnOperandKind::SME_ADDR_RI_U4xVL,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
+                kind: InsnOperandKind::SME_Znx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zn2,
+                    lsb: 6,
+                    width: 4,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm_INDEX2,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
                 bit_fields: &[
                     BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
+                        bitfield: InsnBitField::SME_Zm,
+                        lsb: 16,
+                        width: 4,
                     },
                     BitfieldSpec {
-                        bitfield: InsnBitField::imm4_0,
-                        lsb: 0,
-                        width: 4,
+                        bitfield: InsnBitField::imm2_10,
+                        lsb: 10,
+                        width: 2,
                     },
                 ],
             },
         ],
-        flags: InsnFlags::empty(),
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::SME_STR(SME_STR::STR_SME_ZA_array_off4_SME_ADDR_RI_U4xVL(
-                STR_SME_ZA_array_off4_SME_ADDR_RI_U4xVL::from(bits),
-            )),
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX2(
+                    SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX2::from(bits),
+                ),
+            ),
         }
     }
 }
-impl InsnOpcode for STR_SME_ZA_array_off4_SME_ADDR_RI_U4xVL {
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX2 {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -1400,344 +1147,470 @@ impl InsnOpcode for STR_SME_ZA_array_off4_SME_ADDR_RI_U4xVL {
         (*self).into()
     }
 }
-impl STR_SME_ZT0_SIMD_ADDR_SIMPLE {
+impl SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX2 {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
+        mnemonic: "sdot",
         aliases: &[],
-        opcode: 0xe13f8000,
-        mask: 0xfffffc1f,
+        opcode: 0xc1509000,
+        mask: 0xfff09078,
         class: InsnClass::SME_MISC,
         feature_set: InsnFeatureSet::SME2,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::SME_ZT0,
-                class: InsnOperandClass::SYSTEM,
-                qualifiers: &[],
-                bit_fields: &[],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::SME_MISC(SME_MISC::STR_SME_ZT0_SIMD_ADDR_SIMPLE(
-                STR_SME_ZT0_SIMD_ADDR_SIMPLE::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STR_SME_ZT0_SIMD_ADDR_SIMPLE {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_Rt_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xb8200800,
-        mask: 0xbfe00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMV_GPRSIZE_IN_Q.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::STR_Rt_ADDR_REGOFF(
-                STR_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STR_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xb8000400,
-        mask: 0xbfe00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S],
                 bit_fields: &[
                     BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
                     },
                     BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
                     },
                 ],
             },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMV_GPRSIZE_IN_Q.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::LDST_IMM9(LDST_IMM9::STR_Rt_ADDR_SIMM9(STR_Rt_ADDR_SIMM9::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for STR_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_Rt_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xb9000000,
-        mask: 0xbfc00000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
             InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                kind: InsnOperandKind::SME_Znx4,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
+                    bitfield: InsnBitField::SME_Zn4,
+                    lsb: 7,
+                    width: 3,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMV_GPRSIZE_IN_Q.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::LDST_POS(LDST_POS::STR_Rt_ADDR_UIMM12(STR_Rt_ADDR_UIMM12::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for STR_Rt_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_SVE_Pt_SVE_ADDR_RI_S9xVL {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xe5800000,
-        mask: 0xffc0e010,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Pt,
-                class: InsnOperandClass::PRED_REG,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Pt,
-                    lsb: 0,
-                    width: 4,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_ADDR_RI_S9xVL,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::SVE_MISC(SVE_MISC::STR_SVE_Pt_SVE_ADDR_RI_S9xVL(
-                STR_SVE_Pt_SVE_ADDR_RI_S9xVL::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STR_SVE_Pt_SVE_ADDR_RI_S9xVL {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_SVE_PNt_SVE_ADDR_RI_S9xVL {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xe5800000,
-        mask: 0xffc0e010,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_PNt,
-                class: InsnOperandClass::PRED_REG,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Pt,
-                    lsb: 0,
-                    width: 4,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_ADDR_RI_S9xVL,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::SVE_MISC(SVE_MISC::STR_SVE_PNt_SVE_ADDR_RI_S9xVL(
-                STR_SVE_PNt_SVE_ADDR_RI_S9xVL::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STR_SVE_PNt_SVE_ADDR_RI_S9xVL {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_SVE_Zt_SVE_ADDR_RI_S9xVL {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0xe5804000,
-        mask: 0xffc0e000,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zt,
+                kind: InsnOperandKind::SME_Zm_INDEX2,
                 class: InsnOperandClass::SVE_REG,
-                qualifiers: &[],
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Zm,
+                        lsb: 16,
+                        width: 4,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm2_10,
+                        lsb: 10,
+                        width: 2,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX2(
+                    SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX2::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX2 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_B_SME_Zm_INDEX2_S_B {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1501020,
+        mask: 0xfff09038,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zt,
-                    lsb: 0,
-                    width: 5,
+                    bitfield: InsnBitField::SME_Zn2,
+                    lsb: 6,
+                    width: 4,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::SVE_ADDR_RI_S9xVL,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
+                kind: InsnOperandKind::SME_Zm_INDEX2,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_B],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Zm,
+                        lsb: 16,
+                        width: 4,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm2_10,
+                        lsb: 10,
+                        width: 2,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_B_SME_Zm_INDEX2_S_B(
+                    SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_B_SME_Zm_INDEX2_S_B::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_B_SME_Zm_INDEX2_S_B {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_S_S_SME_Znx4_S_B_SME_Zm_INDEX2_S_B {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1509020,
+        mask: 0xfff09078,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx4,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
+                    bitfield: InsnBitField::SME_Zn4,
+                    lsb: 7,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm_INDEX2,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_B],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Zm,
+                        lsb: 16,
+                        width: 4,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm2_10,
+                        lsb: 10,
+                        width: 2,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_S_S_SME_Znx4_S_B_SME_Zm_INDEX2_S_B(
+                    SDOT_SME_ZA_array_off3_0_S_S_SME_Znx4_S_B_SME_Zm_INDEX2_S_B::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_S_S_SME_Znx4_S_B_SME_Zm_INDEX2_S_B {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX1 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1d00008,
+        mask: 0xfff09838,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2_I16I64,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zn2,
+                    lsb: 6,
+                    width: 4,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm_INDEX1,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Zm,
+                        lsb: 16,
+                        width: 4,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm1_10,
+                        lsb: 10,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX1(
+                    SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX1::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zm_INDEX1 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX1 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1d08008,
+        mask: 0xfff09878,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2_I16I64,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx4,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zn4,
+                    lsb: 7,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm_INDEX1,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Zm,
+                        lsb: 16,
+                        width: 4,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm1_10,
+                        lsb: 10,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX1(
+                    SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX1::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zm_INDEX1 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_SVE_ZnxN_SME_Zm {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1201400,
+        mask: 0xffb09c18,
+        class: InsnClass::SME_INT_SD,
+        feature_set: InsnFeatureSet::SME2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_ZnxN,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
                     lsb: 5,
                     width: 5,
                 }],
             },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm,
+                    lsb: 16,
+                    width: 4,
+                }],
+            },
         ],
-        flags: InsnFlags::empty(),
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::SVE_MISC(SVE_MISC::STR_SVE_Zt_SVE_ADDR_RI_S9xVL(
-                STR_SVE_Zt_SVE_ADDR_RI_S9xVL::from(bits),
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_INT_SD(SME_INT_SD::SDOT_SME_ZA_array_off3_0_SVE_ZnxN_SME_Zm(
+                SDOT_SME_ZA_array_off3_0_SVE_ZnxN_SME_Zm::from(bits),
             )),
         }
     }
 }
-impl InsnOpcode for STR_SVE_Zt_SVE_ADDR_RI_S9xVL {
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SVE_ZnxN_SME_Zm {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -1745,124 +1618,72 @@ impl InsnOpcode for STR_SVE_Zt_SVE_ADDR_RI_S9xVL {
         (*self).into()
     }
 }
-impl STR_Ft_ADDR_REGOFF {
+impl SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_B_SME_Zm_S_B {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
+        mnemonic: "sdot",
         aliases: &[],
-        opcode: 0x3c200800,
-        mask: 0x3f600c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
+        opcode: 0xc1301400,
+        mask: 0xffb09c18,
+        class: InsnClass::SME_INT_SD,
+        feature_set: InsnFeatureSet::SME2,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::STR_Ft_ADDR_REGOFF(
-                STR_Ft_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STR_Ft_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STR_Ft_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
-        aliases: &[],
-        opcode: 0x3c000400,
-        mask: 0x3f600400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
                 bit_fields: &[
                     BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
                     },
                     BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
                     },
                 ],
             },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_ZnxN,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm,
+                    lsb: 16,
+                    width: 4,
+                }],
+            },
         ],
-        flags: InsnFlags::empty(),
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::LDST_IMM9(LDST_IMM9::STR_Ft_ADDR_SIMM9(STR_Ft_ADDR_SIMM9::from(
-                bits,
-            ))),
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_INT_SD(
+                SME_INT_SD::SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_B_SME_Zm_S_B(
+                    SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_B_SME_Zm_S_B::from(bits),
+                ),
+            ),
         }
     }
 }
-impl InsnOpcode for STR_Ft_ADDR_SIMM9 {
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_B_SME_Zm_S_B {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -1870,67 +1691,72 @@ impl InsnOpcode for STR_Ft_ADDR_SIMM9 {
         (*self).into()
     }
 }
-impl STR_Ft_ADDR_UIMM12 {
+impl SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zmx2 {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "str",
+        mnemonic: "sdot",
         aliases: &[],
-        opcode: 0x3d000000,
-        mask: 0x3f400000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
+        opcode: 0xc1a01400,
+        mask: 0xffa19c38,
+        class: InsnClass::SME_INT_SD,
+        feature_set: InsnFeatureSet::SME2,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
                 bit_fields: &[
                     BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
                     },
                     BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
                     },
                 ],
             },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zn2,
+                    lsb: 6,
+                    width: 4,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zmx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm2,
+                    lsb: 17,
+                    width: 4,
+                }],
+            },
         ],
-        flags: InsnFlags::empty(),
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#str,
-            operation: Operation::LDST_POS(LDST_POS::STR_Ft_ADDR_UIMM12(STR_Ft_ADDR_UIMM12::from(
-                bits,
-            ))),
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_INT_SD(
+                SME_INT_SD::SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zmx2(
+                    SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zmx2::from(bits),
+                ),
+            ),
         }
     }
 }
-impl InsnOpcode for STR_Ft_ADDR_UIMM12 {
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SME_Znx2_SME_Zmx2 {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -1938,96 +1764,287 @@ impl InsnOpcode for STR_Ft_ADDR_UIMM12 {
         (*self).into()
     }
 }
-impl STRB_Rt_ADDR_REGOFF {
+impl SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zmx4 {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "strb",
+        mnemonic: "sdot",
         aliases: &[],
-        opcode: 0x38200800,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
+        opcode: 0xc1a11400,
+        mask: 0xffa39c78,
+        class: InsnClass::SME_INT_SD,
+        feature_set: InsnFeatureSet::SME2,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#strb,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::STRB_Rt_ADDR_REGOFF(
-                STRB_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for STRB_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl STRB_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "strb",
-        aliases: &[],
-        opcode: 0x38000400,
-        mask: 0xffe00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B],
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
                 bit_fields: &[
                     BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
                     },
                     BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
                     },
                 ],
             },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx4,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zn4,
+                    lsb: 7,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zmx4,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm4,
+                    lsb: 18,
+                    width: 3,
+                }],
+            },
         ],
-        flags: InsnFlags::empty(),
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#strb,
-            operation: Operation::LDST_IMM9(LDST_IMM9::STRB_Rt_ADDR_SIMM9(
-                STRB_Rt_ADDR_SIMM9::from(bits),
-            )),
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_INT_SD(
+                SME_INT_SD::SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zmx4(
+                    SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zmx4::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_SME_Znx4_SME_Zmx4 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1601408,
+        mask: 0xfff09c18,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_ZnxN,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm,
+                    lsb: 16,
+                    width: 4,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H(
+                    SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H_c1701408 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1701408,
+        mask: 0xfff09c18,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_ZnxN,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zm,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm,
+                    lsb: 16,
+                    width: 4,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H_c1701408(
+                    SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H_c1701408::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for SDOT_SME_ZA_array_off3_0_S_S_SVE_ZnxN_S_H_SME_Zm_S_H_c1701408 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_H_SME_Zmx2_S_H {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "sdot",
+        aliases: &[],
+        opcode: 0xc1e01408,
+        mask: 0xffe19c38,
+        class: InsnClass::SME_MISC,
+        feature_set: InsnFeatureSet::SME2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SME_ZA_array_off3_0,
+                class: InsnOperandClass::ZA_ACCESS,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::SME_Rv,
+                        lsb: 13,
+                        width: 2,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm3_0,
+                        lsb: 0,
+                        width: 3,
+                    },
+                ],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Znx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zn2,
+                    lsb: 6,
+                    width: 4,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SME_Zmx2,
+                class: InsnOperandClass::SVE_REGLIST,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SME_Zm2,
+                    lsb: 17,
+                    width: 4,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#sdot,
+            operation: Operation::SME_MISC(
+                SME_MISC::SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_H_SME_Zmx2_S_H(
+                    SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_H_SME_Zmx2_S_H::from(bits),
+                ),
+            ),
         }
     }
 }

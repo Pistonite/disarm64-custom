@@ -8,16 +8,16 @@ import shutil
 import subprocess
 
 
-GIT = shutil.which("git")
-if GIT is None:
+GIT: str = shutil.which("git") #type: ignore
+if not GIT:
     print(f"git not found")
     exit(1)
-RUSTFMT = shutil.which("rustfmt")
-if RUSTFMT is None:
+RUSTFMT: str = shutil.which("rustfmt") #type: ignore
+if not RUSTFMT:
     print(f"rustfmt not found")
     exit(1)
-CARGO = shutil.which("cargo")
-if CARGO is None:
+CARGO: str = shutil.which("cargo") #type: ignore
+if not CARGO:
     print(f"cargo not found")
     exit(1)
 
@@ -84,7 +84,8 @@ def main():
     os.makedirs(OUTPUT_PATH)
 
     make_decode_library()
-
+    copy_extra_files()
+    run_extra_checks()
   
 
 def make_decode_library():
@@ -186,7 +187,12 @@ def make_matcher(l):
 def copy_extra_files():
     print("copying extra files")
     shutil.copyfile("disarm64/LICENSE", f"{OUTPUT_PATH}/LICENSE")
-    shutil.copyfile("disarm64/README.md", f"{OUTPUT_PATH}/README.md")
+    shutil.copyfile("disarm64/Readme.md", f"{OUTPUT_PATH}/README.md")
+
+def run_extra_checks():
+    print("running extra checks")
+    subprocess.run([CARGO, "fmt"], check=True)
+    subprocess.run([CARGO, "clippy"], check=True)
 
 if __name__ == "__main__":
     main()
