@@ -41,6 +41,7 @@ fmsb
 fmsub
 fmul*
 fsub*
+ldar*
 ldp
 ldpsw
 ldr*

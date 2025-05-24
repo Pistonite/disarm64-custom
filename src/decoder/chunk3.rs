@@ -1567,6 +1567,30 @@ pub struct FSUBR_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_I1_HALF_ONE {
 }
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
+pub struct LDAR_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(27)]
+    pub _op_5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDARB_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(27)]
+    pub _op_5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct LDARH_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(27)]
+    pub _op_5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
 pub struct LDP_Rt_Rt2_ADDR_SIMM7 {
     #[bits(5)]
     pub rt: u32,
@@ -1992,22 +2016,4 @@ pub struct LDRSH_Rt_ADDR_UIMM12 {
     pub imm12: u32,
     #[bits(10)]
     pub _op_22: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct LDRSW_Rt_ADDR_PCREL19 {
-    #[bits(5)]
-    pub rt: u32,
-    #[bits(19)]
-    pub imm19: u32,
-    #[bits(8)]
-    pub _op_24: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct LDRSW_Rt_ADDR_REGOFF {
-    #[bits(5)]
-    pub rt: u32,
-    #[bits(27)]
-    pub _op_5: u32,
 }

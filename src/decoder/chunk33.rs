@@ -5,6 +5,183 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 use super::*;
+impl InsnOpcode for UCVTF_SVE_Zd_S_S_SVE_Pg3_P_M_SVE_Zn_S_S {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_S {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "ucvtf",
+        aliases: &[],
+        opcode: 0x6555a000,
+        mask: 0xffffe000,
+        class: InsnClass::SVE_MISC,
+        feature_set: InsnFeatureSet::SVE,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Pg3,
+                    lsb: 10,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zn,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ucvtf,
+            operation: Operation::SVE_MISC(SVE_MISC::UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_S(
+                UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_S::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_S {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl UCVTF_SVE_Zd_S_S_SVE_Pg3_P_M_SVE_Zn_S_D {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "ucvtf",
+        aliases: &[],
+        opcode: 0x65d5a000,
+        mask: 0xffffe000,
+        class: InsnClass::SVE_MISC,
+        feature_set: InsnFeatureSet::SVE,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_S],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Pg3,
+                    lsb: 10,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zn,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ucvtf,
+            operation: Operation::SVE_MISC(SVE_MISC::UCVTF_SVE_Zd_S_S_SVE_Pg3_P_M_SVE_Zn_S_D(
+                UCVTF_SVE_Zd_S_S_SVE_Pg3_P_M_SVE_Zn_S_D::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for UCVTF_SVE_Zd_S_S_SVE_Pg3_P_M_SVE_Zn_S_D {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "ucvtf",
+        aliases: &[],
+        opcode: 0x6553a000,
+        mask: 0xffffe000,
+        class: InsnClass::SVE_MISC,
+        feature_set: InsnFeatureSet::SVE,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zd,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Pg3,
+                class: InsnOperandClass::PRED_REG,
+                qualifiers: &[InsnOperandQualifier::P_M],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Pg3,
+                    lsb: 10,
+                    width: 3,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SVE_Zn,
+                class: InsnOperandClass::SVE_REG,
+                qualifiers: &[InsnOperandQualifier::S_H],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::SVE_Zn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ucvtf,
+            operation: Operation::SVE_MISC(SVE_MISC::UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H(
+                UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H::from(bits),
+            )),
+        }
+    }
+}
 impl InsnOpcode for UCVTF_SVE_Zd_S_H_SVE_Pg3_P_M_SVE_Zn_S_H {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
@@ -1828,194 +2005,6 @@ impl InsnOpcode for FLOATCCMP {
             FLOATCCMP::FCCMPE_Fn_S_S_Fm_S_S_NZCV_COND(opcode) => opcode.bits(),
             FLOATCCMP::FCCMP_Fn_Fm_NZCV_COND(opcode) => opcode.bits(),
             FLOATCCMP::FCCMP_Fn_S_S_Fm_S_S_NZCV_COND(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for FLOATCMP {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            FLOATCMP::FCMPE_Fn_FPIMM0(opcode) => opcode.definition(),
-            FLOATCMP::FCMPE_Fn_Fm(opcode) => opcode.definition(),
-            FLOATCMP::FCMPE_Fn_S_S_FPIMM0(opcode) => opcode.definition(),
-            FLOATCMP::FCMPE_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
-            FLOATCMP::FCMP_Fn_FPIMM0(opcode) => opcode.definition(),
-            FLOATCMP::FCMP_Fn_Fm(opcode) => opcode.definition(),
-            FLOATCMP::FCMP_Fn_S_S_FPIMM0(opcode) => opcode.definition(),
-            FLOATCMP::FCMP_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            FLOATCMP::FCMPE_Fn_FPIMM0(opcode) => opcode.bits(),
-            FLOATCMP::FCMPE_Fn_Fm(opcode) => opcode.bits(),
-            FLOATCMP::FCMPE_Fn_S_S_FPIMM0(opcode) => opcode.bits(),
-            FLOATCMP::FCMPE_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
-            FLOATCMP::FCMP_Fn_FPIMM0(opcode) => opcode.bits(),
-            FLOATCMP::FCMP_Fn_Fm(opcode) => opcode.bits(),
-            FLOATCMP::FCMP_Fn_S_S_FPIMM0(opcode) => opcode.bits(),
-            FLOATCMP::FCMP_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for FLOATDP1 {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            FLOATDP1::FCVT_Fd_Fn(opcode) => opcode.definition(),
-            FLOATDP1::FMOV_Fd_Fn(opcode) => opcode.definition(),
-            FLOATDP1::FMOV_Fd_S_S_Fn_S_S(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            FLOATDP1::FCVT_Fd_Fn(opcode) => opcode.bits(),
-            FLOATDP1::FMOV_Fd_Fn(opcode) => opcode.bits(),
-            FLOATDP1::FMOV_Fd_S_S_Fn_S_S(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for FLOATDP2 {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            FLOATDP2::FADD_Fd_Fn_Fm(opcode) => opcode.definition(),
-            FLOATDP2::FADD_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
-            FLOATDP2::FDIV_Fd_Fn_Fm(opcode) => opcode.definition(),
-            FLOATDP2::FDIV_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
-            FLOATDP2::FMUL_Fd_Fn_Fm(opcode) => opcode.definition(),
-            FLOATDP2::FMUL_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
-            FLOATDP2::FSUB_Fd_Fn_Fm(opcode) => opcode.definition(),
-            FLOATDP2::FSUB_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            FLOATDP2::FADD_Fd_Fn_Fm(opcode) => opcode.bits(),
-            FLOATDP2::FADD_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
-            FLOATDP2::FDIV_Fd_Fn_Fm(opcode) => opcode.bits(),
-            FLOATDP2::FDIV_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
-            FLOATDP2::FMUL_Fd_Fn_Fm(opcode) => opcode.bits(),
-            FLOATDP2::FMUL_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
-            FLOATDP2::FSUB_Fd_Fn_Fm(opcode) => opcode.bits(),
-            FLOATDP2::FSUB_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for FLOATDP3 {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            FLOATDP3::FMSUB_Fd_Fn_Fm_Fa(opcode) => opcode.definition(),
-            FLOATDP3::FMSUB_Fd_S_S_Fn_S_S_Fm_S_S_Fa_S_S(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            FLOATDP3::FMSUB_Fd_Fn_Fm_Fa(opcode) => opcode.bits(),
-            FLOATDP3::FMSUB_Fd_S_S_Fn_S_S_Fm_S_S_Fa_S_S(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for FLOATIMM {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            FLOATIMM::FMOV_Fd_FPIMM(opcode) => opcode.definition(),
-            FLOATIMM::FMOV_Fd_S_S_FPIMM(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            FLOATIMM::FMOV_Fd_FPIMM(opcode) => opcode.bits(),
-            FLOATIMM::FMOV_Fd_S_S_FPIMM(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for FLOATSEL {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            FLOATSEL::FCSEL_Fd_Fn_Fm_COND(opcode) => opcode.definition(),
-            FLOATSEL::FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            FLOATSEL::FCSEL_Fd_Fn_Fm_COND(opcode) => opcode.bits(),
-            FLOATSEL::FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for IC_SYSTEM {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            IC_SYSTEM::CFINV(opcode) => opcode.definition(),
-            IC_SYSTEM::CHKFEAT_X16(opcode) => opcode.definition(),
-            IC_SYSTEM::CLREX_UIMM4(opcode) => opcode.definition(),
-            IC_SYSTEM::SB(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            IC_SYSTEM::CFINV(opcode) => opcode.bits(),
-            IC_SYSTEM::CHKFEAT_X16(opcode) => opcode.bits(),
-            IC_SYSTEM::CLREX_UIMM4(opcode) => opcode.bits(),
-            IC_SYSTEM::SB(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for LDSTEXCL {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            LDSTEXCL::STXP_Rs_Rt_Rt2_ADDR_SIMPLE(opcode) => opcode.definition(),
-            LDSTEXCL::STXRB_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
-            LDSTEXCL::STXRH_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
-            LDSTEXCL::STXR_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
-            LDSTEXCL::STZGM_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            LDSTEXCL::STXP_Rs_Rt_Rt2_ADDR_SIMPLE(opcode) => opcode.bits(),
-            LDSTEXCL::STXRB_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
-            LDSTEXCL::STXRH_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
-            LDSTEXCL::STXR_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
-            LDSTEXCL::STZGM_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for LDSTPAIR_INDEXED {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            LDSTPAIR_INDEXED::LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
-            LDSTPAIR_INDEXED::LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
-            LDSTPAIR_INDEXED::LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
-            LDSTPAIR_INDEXED::STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
-            LDSTPAIR_INDEXED::STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            LDSTPAIR_INDEXED::LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
-            LDSTPAIR_INDEXED::LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
-            LDSTPAIR_INDEXED::LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
-            LDSTPAIR_INDEXED::STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
-            LDSTPAIR_INDEXED::STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
-        }
-    }
-}
-impl InsnOpcode for LDSTPAIR_OFF {
-    fn definition(&self) -> &'static Insn {
-        match self {
-            LDSTPAIR_OFF::LDPSW_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.definition(),
-            LDSTPAIR_OFF::LDP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.definition(),
-            LDSTPAIR_OFF::LDP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.definition(),
-            LDSTPAIR_OFF::STP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.definition(),
-            LDSTPAIR_OFF::STP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.definition(),
-        }
-    }
-    fn bits(&self) -> u32 {
-        match self {
-            LDSTPAIR_OFF::LDPSW_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.bits(),
-            LDSTPAIR_OFF::LDP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.bits(),
-            LDSTPAIR_OFF::LDP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.bits(),
-            LDSTPAIR_OFF::STP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.bits(),
-            LDSTPAIR_OFF::STP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.bits(),
         }
     }
 }

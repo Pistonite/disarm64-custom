@@ -7,6 +7,26 @@
 use super::*;
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
+pub struct SDOT_SME_ZA_array_off3_0_S_S_SME_Znx2_S_H_SME_Zmx2_S_H {
+    #[bits(3)]
+    pub imm3_0: u32,
+    #[bits(3)]
+    pub _op_3: u32,
+    #[bits(4)]
+    pub sme_zn2: u32,
+    #[bits(3)]
+    pub _op_10: u32,
+    #[bits(2)]
+    pub sme_rv: u32,
+    #[bits(2)]
+    pub _op_15: u32,
+    #[bits(4)]
+    pub sme_zm2: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
 pub struct SDOT_SME_ZA_array_off3_0_S_S_SME_Znx4_S_H_SME_Zmx4_S_H {
     #[bits(3)]
     pub imm3_0: u32,

@@ -192,6 +192,8 @@ def copy_extra_files():
 def run_extra_checks():
     print("running extra checks")
     subprocess.run([CARGO, "fmt"], check=True)
+    # make sure it builds
+    subprocess.run([CARGO, "build"], check=True)
     subprocess.run([CARGO, "clippy"], check=True)
 
 if __name__ == "__main__":

@@ -5,6 +5,200 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 use super::*;
+impl InsnOpcode for FLOATCMP {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            FLOATCMP::FCMPE_Fn_FPIMM0(opcode) => opcode.definition(),
+            FLOATCMP::FCMPE_Fn_Fm(opcode) => opcode.definition(),
+            FLOATCMP::FCMPE_Fn_S_S_FPIMM0(opcode) => opcode.definition(),
+            FLOATCMP::FCMPE_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
+            FLOATCMP::FCMP_Fn_FPIMM0(opcode) => opcode.definition(),
+            FLOATCMP::FCMP_Fn_Fm(opcode) => opcode.definition(),
+            FLOATCMP::FCMP_Fn_S_S_FPIMM0(opcode) => opcode.definition(),
+            FLOATCMP::FCMP_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            FLOATCMP::FCMPE_Fn_FPIMM0(opcode) => opcode.bits(),
+            FLOATCMP::FCMPE_Fn_Fm(opcode) => opcode.bits(),
+            FLOATCMP::FCMPE_Fn_S_S_FPIMM0(opcode) => opcode.bits(),
+            FLOATCMP::FCMPE_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
+            FLOATCMP::FCMP_Fn_FPIMM0(opcode) => opcode.bits(),
+            FLOATCMP::FCMP_Fn_Fm(opcode) => opcode.bits(),
+            FLOATCMP::FCMP_Fn_S_S_FPIMM0(opcode) => opcode.bits(),
+            FLOATCMP::FCMP_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for FLOATDP1 {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            FLOATDP1::FCVT_Fd_Fn(opcode) => opcode.definition(),
+            FLOATDP1::FMOV_Fd_Fn(opcode) => opcode.definition(),
+            FLOATDP1::FMOV_Fd_S_S_Fn_S_S(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            FLOATDP1::FCVT_Fd_Fn(opcode) => opcode.bits(),
+            FLOATDP1::FMOV_Fd_Fn(opcode) => opcode.bits(),
+            FLOATDP1::FMOV_Fd_S_S_Fn_S_S(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for FLOATDP2 {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            FLOATDP2::FADD_Fd_Fn_Fm(opcode) => opcode.definition(),
+            FLOATDP2::FADD_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
+            FLOATDP2::FDIV_Fd_Fn_Fm(opcode) => opcode.definition(),
+            FLOATDP2::FDIV_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
+            FLOATDP2::FMUL_Fd_Fn_Fm(opcode) => opcode.definition(),
+            FLOATDP2::FMUL_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
+            FLOATDP2::FSUB_Fd_Fn_Fm(opcode) => opcode.definition(),
+            FLOATDP2::FSUB_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            FLOATDP2::FADD_Fd_Fn_Fm(opcode) => opcode.bits(),
+            FLOATDP2::FADD_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
+            FLOATDP2::FDIV_Fd_Fn_Fm(opcode) => opcode.bits(),
+            FLOATDP2::FDIV_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
+            FLOATDP2::FMUL_Fd_Fn_Fm(opcode) => opcode.bits(),
+            FLOATDP2::FMUL_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
+            FLOATDP2::FSUB_Fd_Fn_Fm(opcode) => opcode.bits(),
+            FLOATDP2::FSUB_Fd_S_S_Fn_S_S_Fm_S_S(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for FLOATDP3 {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            FLOATDP3::FMSUB_Fd_Fn_Fm_Fa(opcode) => opcode.definition(),
+            FLOATDP3::FMSUB_Fd_S_S_Fn_S_S_Fm_S_S_Fa_S_S(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            FLOATDP3::FMSUB_Fd_Fn_Fm_Fa(opcode) => opcode.bits(),
+            FLOATDP3::FMSUB_Fd_S_S_Fn_S_S_Fm_S_S_Fa_S_S(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for FLOATIMM {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            FLOATIMM::FMOV_Fd_FPIMM(opcode) => opcode.definition(),
+            FLOATIMM::FMOV_Fd_S_S_FPIMM(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            FLOATIMM::FMOV_Fd_FPIMM(opcode) => opcode.bits(),
+            FLOATIMM::FMOV_Fd_S_S_FPIMM(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for FLOATSEL {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            FLOATSEL::FCSEL_Fd_Fn_Fm_COND(opcode) => opcode.definition(),
+            FLOATSEL::FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            FLOATSEL::FCSEL_Fd_Fn_Fm_COND(opcode) => opcode.bits(),
+            FLOATSEL::FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for IC_SYSTEM {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            IC_SYSTEM::CFINV(opcode) => opcode.definition(),
+            IC_SYSTEM::CHKFEAT_X16(opcode) => opcode.definition(),
+            IC_SYSTEM::CLREX_UIMM4(opcode) => opcode.definition(),
+            IC_SYSTEM::SB(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            IC_SYSTEM::CFINV(opcode) => opcode.bits(),
+            IC_SYSTEM::CHKFEAT_X16(opcode) => opcode.bits(),
+            IC_SYSTEM::CLREX_UIMM4(opcode) => opcode.bits(),
+            IC_SYSTEM::SB(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for LDSTEXCL {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            LDSTEXCL::LDARB_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::LDARH_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::LDAR_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::STXP_Rs_Rt_Rt2_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::STXRB_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::STXRH_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::STXR_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+            LDSTEXCL::STZGM_Rt_ADDR_SIMPLE(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            LDSTEXCL::LDARB_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::LDARH_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::LDAR_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::STXP_Rs_Rt_Rt2_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::STXRB_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::STXRH_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::STXR_Rs_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+            LDSTEXCL::STZGM_Rt_ADDR_SIMPLE(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for LDSTPAIR_INDEXED {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            LDSTPAIR_INDEXED::LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
+            LDSTPAIR_INDEXED::LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
+            LDSTPAIR_INDEXED::LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
+            LDSTPAIR_INDEXED::STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
+            LDSTPAIR_INDEXED::STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            LDSTPAIR_INDEXED::LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
+            LDSTPAIR_INDEXED::LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
+            LDSTPAIR_INDEXED::LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
+            LDSTPAIR_INDEXED::STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
+            LDSTPAIR_INDEXED::STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(opcode) => opcode.bits(),
+        }
+    }
+}
+impl InsnOpcode for LDSTPAIR_OFF {
+    fn definition(&self) -> &'static Insn {
+        match self {
+            LDSTPAIR_OFF::LDPSW_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.definition(),
+            LDSTPAIR_OFF::LDP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.definition(),
+            LDSTPAIR_OFF::LDP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.definition(),
+            LDSTPAIR_OFF::STP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.definition(),
+            LDSTPAIR_OFF::STP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.definition(),
+        }
+    }
+    fn bits(&self) -> u32 {
+        match self {
+            LDSTPAIR_OFF::LDPSW_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.bits(),
+            LDSTPAIR_OFF::LDP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.bits(),
+            LDSTPAIR_OFF::LDP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.bits(),
+            LDSTPAIR_OFF::STP_Ft_Ft2_ADDR_SIMM7(opcode) => opcode.bits(),
+            LDSTPAIR_OFF::STP_Rt_Rt2_ADDR_SIMM7(opcode) => opcode.bits(),
+        }
+    }
+}
 impl InsnOpcode for LDST_IMM10 {
     fn definition(&self) -> &'static Insn {
         match self {
@@ -2496,15 +2690,35 @@ pub fn decode(insn: u32) -> Option<Opcode> {
                                 }
                             }
                         } else {
-                            if insn & 0x40000000 == 0 {
-                                if insn & 0x7ec00000 == 0x28c00000 {
-                                    return Some(LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S::make_opcode(insn));
+                            if insn & 0x20000000 == 0 {
+                                if insn & 0x80000000 == 0 {
+                                    if insn & 0x40000000 == 0 {
+                                        if insn & 0xfffffc00 == 0x8dffc00 {
+                                            return Some(LDARB_Rt_ADDR_SIMPLE::make_opcode(insn));
+                                        }
+                                    } else {
+                                        if insn & 0xfffffc00 == 0x48dffc00 {
+                                            return Some(LDARH_Rt_ADDR_SIMPLE::make_opcode(insn));
+                                        }
+                                    }
+                                } else {
+                                    if insn & 0xbffffc00 == 0x88dffc00 {
+                                        return Some(LDAR_Rt_ADDR_SIMPLE::make_opcode(insn));
+                                    }
                                 }
                             } else {
-                                if insn & 0xfec00000 == 0x68c00000 {
-                                    return Some(LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S::make_opcode(
-                                        insn,
-                                    ));
+                                if insn & 0x40000000 == 0 {
+                                    if insn & 0x7ec00000 == 0x28c00000 {
+                                        return Some(LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S::make_opcode(
+                                            insn,
+                                        ));
+                                    }
+                                } else {
+                                    if insn & 0xfec00000 == 0x68c00000 {
+                                        return Some(LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S::make_opcode(
+                                            insn,
+                                        ));
+                                    }
                                 }
                             }
                         }
