@@ -17,7 +17,10 @@ to compile 2x faster:
 rustflags = ["-Z", "thread=4"]
 ```
 
-## For my self
+## Add
 ```
 cargo add disarm64-custom --git https://github.com/Pistonite/disarm64-custom --branch main
 ```
+
+## Generate
+Tweak `menmonics.txt` and parameters in `make.py`, then run `python make.py`
