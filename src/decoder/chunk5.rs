@@ -5,6 +5,1100 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 use super::*;
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Fd_Rn_FBITS {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub scale: u32,
+    #[bits(16)]
+    pub _op_16: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub scale: u32,
+    #[bits(16)]
+    pub _op_16: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Fd_Rn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Fd_S_D_Rn_W {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Sd_Sn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Vd_V_4H_Vn_V_4H {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Sd_S_H_Sn_S_H {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UDIV_Rd_Rn_Rm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UHADD_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UHSUB_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMADDL_Rd_Rn_Rm_Ra {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(5)]
+    pub ra: u32,
+    #[bits(1)]
+    pub _op_15: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMAX_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMAXP_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMAXV_Fd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMIN_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMINP_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMINV_Fd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLAL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLAL_Vd_Vn_Em16 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLAL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLAL2_Vd_Vn_Em16 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLSL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLSL_Vd_Vn_Em16 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLSL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMLSL2_Vd_Vn_Em16 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMOV_Rd_En {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMSUBL_Rd_Rn_Rm_Ra {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(5)]
+    pub ra: u32,
+    #[bits(1)]
+    pub _op_15: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMULH_Rd_Rn_Rm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMULL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMULL_Vd_Vn_Em16 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMULL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UMULL2_Vd_Vn_Em16 {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQADD_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQADD_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQRSHL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQRSHL_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQRSHRN_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQRSHRN_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQRSHRN2_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHL_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHL_Vd_Vn_IMM_VLSL {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHL_Sd_Sn_IMM_VLSL {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHRN_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHRN_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSHRN2_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSUB_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQSUB_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQXTN_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQXTN_Sd_Sn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UQXTN2_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URECPE_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URHADD_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSHL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSHL_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSHR_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSHR_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSQRTE_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSRA_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct URSRA_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USHL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USHL_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USHLL_Vd_Vn_IMM_VLSL {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USHLL2_Vd_Vn_IMM_VLSL {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USHR_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USHR_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USQADD_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USQADD_Sd_Sn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USRA_Vd_Vn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USRA_Sd_Sn_IMM_VLSR {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USUBL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USUBL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USUBW_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct USUBW2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UZP1_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UZP2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct XPACD_Rd {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(27)]
+    pub _op_5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct XPACI_Rd {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(27)]
+    pub _op_5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct XTN_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct XTN2_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct ZIP1_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct ZIP2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum ADDSUB_CARRY {
+    ADCS_Rd_Rn_Rm(ADCS_Rd_Rn_Rm),
+    ADC_Rd_Rn_Rm(ADC_Rd_Rn_Rm),
+    SBCS_Rd_Rn_Rm(SBCS_Rd_Rn_Rm),
+    SBC_Rd_Rn_Rm(SBC_Rd_Rn_Rm),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum ADDSUB_EXT {
+    ADDS_Rd_Rn_SP_Rm_EXT(ADDS_Rd_Rn_SP_Rm_EXT),
+    ADD_Rd_SP_Rn_SP_Rm_EXT(ADD_Rd_SP_Rn_SP_Rm_EXT),
+    SUBS_Rd_Rn_SP_Rm_EXT(SUBS_Rd_Rn_SP_Rm_EXT),
+    SUB_Rd_SP_Rn_SP_Rm_EXT(SUB_Rd_SP_Rn_SP_Rm_EXT),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum ADDSUB_IMM {
+    ADDG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG(ADDG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG),
+    ADDS_Rd_Rn_SP_AIMM(ADDS_Rd_Rn_SP_AIMM),
+    ADD_Rd_SP_Rn_SP_AIMM(ADD_Rd_SP_Rn_SP_AIMM),
+    SUBG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG(SUBG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG),
+    SUBS_Rd_Rn_SP_AIMM(SUBS_Rd_Rn_SP_AIMM),
+    SUB_Rd_SP_Rn_SP_AIMM(SUB_Rd_SP_Rn_SP_AIMM),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum ADDSUB_SHIFT {
+    ADDS_Rd_Rn_Rm_SFT(ADDS_Rd_Rn_Rm_SFT),
+    ADD_Rd_Rn_Rm_SFT(ADD_Rd_Rn_Rm_SFT),
+    SUBS_Rd_Rn_Rm_SFT(SUBS_Rd_Rn_Rm_SFT),
+    SUB_Rd_Rn_Rm_SFT(SUB_Rd_Rn_Rm_SFT),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum ASIMDALL {
+    ADDV_Fd_Vn(ADDV_Fd_Vn),
+    FMAXNMV_Fd_S_S_Vn_V_4S(FMAXNMV_Fd_S_S_Vn_V_4S),
+    FMAXNMV_Fd_Vn(FMAXNMV_Fd_Vn),
+    FMAXV_Fd_S_S_Vn_V_4S(FMAXV_Fd_S_S_Vn_V_4S),
+    FMAXV_Fd_Vn(FMAXV_Fd_Vn),
+    FMINNMV_Fd_S_S_Vn_V_4S(FMINNMV_Fd_S_S_Vn_V_4S),
+    FMINNMV_Fd_Vn(FMINNMV_Fd_Vn),
+    FMINV_Fd_S_S_Vn_V_4S(FMINV_Fd_S_S_Vn_V_4S),
+    FMINV_Fd_Vn(FMINV_Fd_Vn),
+    SADDLV_Fd_Vn(SADDLV_Fd_Vn),
+    SMAXV_Fd_Vn(SMAXV_Fd_Vn),
+    SMINV_Fd_Vn(SMINV_Fd_Vn),
+    UADDLV_Fd_Vn(UADDLV_Fd_Vn),
+    UMAXV_Fd_Vn(UMAXV_Fd_Vn),
+    UMINV_Fd_Vn(UMINV_Fd_Vn),
+}
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum ASIMDDIFF {
     ADDHN2_Vd_Vn_Vm(ADDHN2_Vd_Vn_Vm),
@@ -707,6 +1801,67 @@ pub enum CONDSEL {
     CSNEG_Rd_Rn_Rm_COND(CSNEG_Rd_Rn_Rm_COND),
 }
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum DP_1SRC {
+    AUTDA_Rd_Rn_SP(AUTDA_Rd_Rn_SP),
+    AUTDB_Rd_Rn_SP(AUTDB_Rd_Rn_SP),
+    AUTDZA_Rd(AUTDZA_Rd),
+    AUTDZB_Rd(AUTDZB_Rd),
+    AUTIA_Rd_Rn_SP(AUTIA_Rd_Rn_SP),
+    AUTIB_Rd_Rn_SP(AUTIB_Rd_Rn_SP),
+    AUTIZA_Rd(AUTIZA_Rd),
+    AUTIZB_Rd(AUTIZB_Rd),
+    CLS_Rd_Rn(CLS_Rd_Rn),
+    CLZ_Rd_Rn(CLZ_Rd_Rn),
+    PACDA_Rd_Rn_SP(PACDA_Rd_Rn_SP),
+    PACDB_Rd_Rn_SP(PACDB_Rd_Rn_SP),
+    PACDZA_Rd(PACDZA_Rd),
+    PACDZB_Rd(PACDZB_Rd),
+    PACIA_Rd_Rn_SP(PACIA_Rd_Rn_SP),
+    PACIB_Rd_Rn_SP(PACIB_Rd_Rn_SP),
+    PACIZA_Rd(PACIZA_Rd),
+    PACIZB_Rd(PACIZB_Rd),
+    RBIT_Rd_Rn(RBIT_Rd_Rn),
+    REV16_Rd_Rn(REV16_Rd_Rn),
+    REV32_Rd_Rn(REV32_Rd_Rn),
+    REV_Rd_Rn(REV_Rd_Rn),
+    REV_Rd_X_Rn_X(REV_Rd_X_Rn_X),
+    XPACD_Rd(XPACD_Rd),
+    XPACI_Rd(XPACI_Rd),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum DP_2SRC {
+    ASRV_Rd_Rn_Rm(ASRV_Rd_Rn_Rm),
+    CRC32B_Rd_Rn_Rm(CRC32B_Rd_Rn_Rm),
+    CRC32CB_Rd_Rn_Rm(CRC32CB_Rd_Rn_Rm),
+    CRC32CH_Rd_Rn_Rm(CRC32CH_Rd_Rn_Rm),
+    CRC32CW_Rd_Rn_Rm(CRC32CW_Rd_Rn_Rm),
+    CRC32CX_Rd_Rn_Rm(CRC32CX_Rd_Rn_Rm),
+    CRC32H_Rd_Rn_Rm(CRC32H_Rd_Rn_Rm),
+    CRC32W_Rd_Rn_Rm(CRC32W_Rd_Rn_Rm),
+    CRC32X_Rd_Rn_Rm(CRC32X_Rd_Rn_Rm),
+    GMI_Rd_Rn_SP_Rm(GMI_Rd_Rn_SP_Rm),
+    IRG_Rd_SP_Rn_SP_Rm(IRG_Rd_SP_Rn_SP_Rm),
+    LSLV_Rd_Rn_Rm(LSLV_Rd_Rn_Rm),
+    LSRV_Rd_Rn_Rm(LSRV_Rd_Rn_Rm),
+    PACGA_Rd_Rn_Rm_SP(PACGA_Rd_Rn_Rm_SP),
+    RORV_Rd_Rn_Rm(RORV_Rd_Rn_Rm),
+    SDIV_Rd_Rn_Rm(SDIV_Rd_Rn_Rm),
+    SUBPS_Rd_Rn_SP_Rm_SP(SUBPS_Rd_Rn_SP_Rm_SP),
+    SUBP_Rd_Rn_SP_Rm_SP(SUBP_Rd_Rn_SP_Rm_SP),
+    UDIV_Rd_Rn_Rm(UDIV_Rd_Rn_Rm),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum DP_3SRC {
+    MADD_Rd_Rn_Rm_Ra(MADD_Rd_Rn_Rm_Ra),
+    MSUB_Rd_Rn_Rm_Ra(MSUB_Rd_Rn_Rm_Ra),
+    SMADDL_Rd_Rn_Rm_Ra(SMADDL_Rd_Rn_Rm_Ra),
+    SMSUBL_Rd_Rn_Rm_Ra(SMSUBL_Rd_Rn_Rm_Ra),
+    SMULH_Rd_Rn_Rm(SMULH_Rd_Rn_Rm),
+    UMADDL_Rd_Rn_Rm_Ra(UMADDL_Rd_Rn_Rm_Ra),
+    UMSUBL_Rd_Rn_Rm_Ra(UMSUBL_Rd_Rn_Rm_Ra),
+    UMULH_Rd_Rn_Rm(UMULH_Rd_Rn_Rm),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum FLOAT2FIX {
     FCVTZS_Rd_Fn_FBITS(FCVTZS_Rd_Fn_FBITS),
     FCVTZS_Rd_W_Fn_S_D_FBITS_imm_1_32(FCVTZS_Rd_W_Fn_S_D_FBITS_imm_1_32),
@@ -780,6 +1935,50 @@ pub enum FLOATSEL {
     FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND(FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND),
 }
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum LDSTEXCL {
+    LDAPRB_Rt_ADDR_SIMPLE(LDAPRB_Rt_ADDR_SIMPLE),
+    LDAPRH_Rt_ADDR_SIMPLE(LDAPRH_Rt_ADDR_SIMPLE),
+    LDAPR_Rt_ADDR_SIMPLE(LDAPR_Rt_ADDR_SIMPLE),
+    LDARB_Rt_ADDR_SIMPLE(LDARB_Rt_ADDR_SIMPLE),
+    LDARH_Rt_ADDR_SIMPLE(LDARH_Rt_ADDR_SIMPLE),
+    LDAR_Rt_ADDR_SIMPLE(LDAR_Rt_ADDR_SIMPLE),
+    LDAXP_Rt_Rt2_ADDR_SIMPLE(LDAXP_Rt_Rt2_ADDR_SIMPLE),
+    LDAXRB_Rt_ADDR_SIMPLE(LDAXRB_Rt_ADDR_SIMPLE),
+    LDAXRH_Rt_ADDR_SIMPLE(LDAXRH_Rt_ADDR_SIMPLE),
+    LDAXR_Rt_ADDR_SIMPLE(LDAXR_Rt_ADDR_SIMPLE),
+    LDGM_Rt_ADDR_SIMPLE(LDGM_Rt_ADDR_SIMPLE),
+    LDLARB_Rt_ADDR_SIMPLE(LDLARB_Rt_ADDR_SIMPLE),
+    LDLARH_Rt_ADDR_SIMPLE(LDLARH_Rt_ADDR_SIMPLE),
+    LDLAR_Rt_ADDR_SIMPLE(LDLAR_Rt_ADDR_SIMPLE),
+    LDXP_Rt_Rt2_ADDR_SIMPLE(LDXP_Rt_Rt2_ADDR_SIMPLE),
+    LDXRB_Rt_ADDR_SIMPLE(LDXRB_Rt_ADDR_SIMPLE),
+    LDXRH_Rt_ADDR_SIMPLE(LDXRH_Rt_ADDR_SIMPLE),
+    LDXR_Rt_ADDR_SIMPLE(LDXR_Rt_ADDR_SIMPLE),
+    STGM_Rt_ADDR_SIMPLE(STGM_Rt_ADDR_SIMPLE),
+    STLLRB_Rt_ADDR_SIMPLE(STLLRB_Rt_ADDR_SIMPLE),
+    STLLRH_Rt_ADDR_SIMPLE(STLLRH_Rt_ADDR_SIMPLE),
+    STLLR_Rt_ADDR_SIMPLE(STLLR_Rt_ADDR_SIMPLE),
+    STLRB_Rt_ADDR_SIMPLE(STLRB_Rt_ADDR_SIMPLE),
+    STLRH_Rt_ADDR_SIMPLE(STLRH_Rt_ADDR_SIMPLE),
+    STLR_Rt_ADDR_SIMPLE(STLR_Rt_ADDR_SIMPLE),
+    STLXP_Rs_Rt_Rt2_ADDR_SIMPLE(STLXP_Rs_Rt_Rt2_ADDR_SIMPLE),
+    STLXRB_Rs_Rt_ADDR_SIMPLE(STLXRB_Rs_Rt_ADDR_SIMPLE),
+    STLXRH_Rs_Rt_ADDR_SIMPLE(STLXRH_Rs_Rt_ADDR_SIMPLE),
+    STLXR_Rs_Rt_ADDR_SIMPLE(STLXR_Rs_Rt_ADDR_SIMPLE),
+    STXP_Rs_Rt_Rt2_ADDR_SIMPLE(STXP_Rs_Rt_Rt2_ADDR_SIMPLE),
+    STXRB_Rs_Rt_ADDR_SIMPLE(STXRB_Rs_Rt_ADDR_SIMPLE),
+    STXRH_Rs_Rt_ADDR_SIMPLE(STXRH_Rs_Rt_ADDR_SIMPLE),
+    STXR_Rs_Rt_ADDR_SIMPLE(STXR_Rs_Rt_ADDR_SIMPLE),
+    STZGM_Rt_ADDR_SIMPLE(STZGM_Rt_ADDR_SIMPLE),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+pub enum LDSTNAPAIR_OFFS {
+    LDNP_Ft_Ft2_ADDR_SIMM7(LDNP_Ft_Ft2_ADDR_SIMM7),
+    LDNP_Rt_Rt2_ADDR_SIMM7(LDNP_Rt_Rt2_ADDR_SIMM7),
+    STNP_Ft_Ft2_ADDR_SIMM7(STNP_Ft_Ft2_ADDR_SIMM7),
+    STNP_Rt_Rt2_ADDR_SIMM7(STNP_Rt_Rt2_ADDR_SIMM7),
+}
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum LDSTPAIR_INDEXED {
     LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S(LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S),
     LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S),
@@ -819,1192 +2018,4 @@ pub enum LDST_IMM9 {
     STR_Rt_ADDR_SIMM9(STR_Rt_ADDR_SIMM9),
     STZ2G_Rt_SP_X_ADDR_SIMM13_imm_tag(STZ2G_Rt_SP_X_ADDR_SIMM13_imm_tag),
     STZG_Rt_SP_X_ADDR_SIMM13_imm_tag(STZG_Rt_SP_X_ADDR_SIMM13_imm_tag),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDST_POS {
-    LDRB_Rt_ADDR_UIMM12(LDRB_Rt_ADDR_UIMM12),
-    LDRH_Rt_ADDR_UIMM12(LDRH_Rt_ADDR_UIMM12),
-    LDRSB_Rt_ADDR_UIMM12(LDRSB_Rt_ADDR_UIMM12),
-    LDRSH_Rt_ADDR_UIMM12(LDRSH_Rt_ADDR_UIMM12),
-    LDRSW_Rt_ADDR_UIMM12(LDRSW_Rt_ADDR_UIMM12),
-    LDR_Ft_ADDR_UIMM12(LDR_Ft_ADDR_UIMM12),
-    LDR_Rt_ADDR_UIMM12(LDR_Rt_ADDR_UIMM12),
-    PRFM_PRFOP_ADDR_UIMM12(PRFM_PRFOP_ADDR_UIMM12),
-    STRB_Rt_ADDR_UIMM12(STRB_Rt_ADDR_UIMM12),
-    STRH_Rt_ADDR_UIMM12(STRH_Rt_ADDR_UIMM12),
-    STR_Ft_ADDR_UIMM12(STR_Ft_ADDR_UIMM12),
-    STR_Rt_ADDR_UIMM12(STR_Rt_ADDR_UIMM12),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDST_REGOFF {
-    LDRB_Rt_ADDR_REGOFF(LDRB_Rt_ADDR_REGOFF),
-    LDRH_Rt_ADDR_REGOFF(LDRH_Rt_ADDR_REGOFF),
-    LDRSB_Rt_ADDR_REGOFF(LDRSB_Rt_ADDR_REGOFF),
-    LDRSH_Rt_ADDR_REGOFF(LDRSH_Rt_ADDR_REGOFF),
-    LDRSW_Rt_ADDR_REGOFF(LDRSW_Rt_ADDR_REGOFF),
-    LDR_Ft_ADDR_REGOFF(LDR_Ft_ADDR_REGOFF),
-    LDR_Rt_ADDR_REGOFF(LDR_Rt_ADDR_REGOFF),
-    PRFM_PRFOP_ADDR_REGOFF(PRFM_PRFOP_ADDR_REGOFF),
-    STRB_Rt_ADDR_REGOFF(STRB_Rt_ADDR_REGOFF),
-    STRH_Rt_ADDR_REGOFF(STRH_Rt_ADDR_REGOFF),
-    STR_Ft_ADDR_REGOFF(STR_Ft_ADDR_REGOFF),
-    STR_Rt_ADDR_REGOFF(STR_Rt_ADDR_REGOFF),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDST_UNPRIV {
-    LDTRB_Rt_ADDR_SIMM9(LDTRB_Rt_ADDR_SIMM9),
-    LDTRH_Rt_ADDR_SIMM9(LDTRH_Rt_ADDR_SIMM9),
-    LDTRSB_Rt_ADDR_SIMM9(LDTRSB_Rt_ADDR_SIMM9),
-    LDTRSH_Rt_ADDR_SIMM9(LDTRSH_Rt_ADDR_SIMM9),
-    LDTRSW_Rt_ADDR_SIMM9(LDTRSW_Rt_ADDR_SIMM9),
-    LDTR_Rt_ADDR_SIMM9(LDTR_Rt_ADDR_SIMM9),
-    STTRB_Rt_ADDR_SIMM9(STTRB_Rt_ADDR_SIMM9),
-    STTRH_Rt_ADDR_SIMM9(STTRH_Rt_ADDR_SIMM9),
-    STTR_Rt_ADDR_SIMM9(STTR_Rt_ADDR_SIMM9),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDST_UNSCALED {
-    LDAPURB_Rt_ADDR_OFFSET(LDAPURB_Rt_ADDR_OFFSET),
-    LDAPURH_Rt_ADDR_OFFSET(LDAPURH_Rt_ADDR_OFFSET),
-    LDAPURSB_Rt_ADDR_OFFSET(LDAPURSB_Rt_ADDR_OFFSET),
-    LDAPURSB_Rt_W_ADDR_OFFSET(LDAPURSB_Rt_W_ADDR_OFFSET),
-    LDAPURSH_Rt_ADDR_OFFSET(LDAPURSH_Rt_ADDR_OFFSET),
-    LDAPURSH_Rt_W_ADDR_OFFSET(LDAPURSH_Rt_W_ADDR_OFFSET),
-    LDAPURSW_Rt_ADDR_OFFSET(LDAPURSW_Rt_ADDR_OFFSET),
-    LDAPUR_Rt_ADDR_OFFSET(LDAPUR_Rt_ADDR_OFFSET),
-    LDAPUR_Rt_X_ADDR_OFFSET(LDAPUR_Rt_X_ADDR_OFFSET),
-    LDG_Rt_ADDR_SIMM13(LDG_Rt_ADDR_SIMM13),
-    LDURB_Rt_ADDR_SIMM9(LDURB_Rt_ADDR_SIMM9),
-    LDURH_Rt_ADDR_SIMM9(LDURH_Rt_ADDR_SIMM9),
-    LDURSB_Rt_ADDR_SIMM9(LDURSB_Rt_ADDR_SIMM9),
-    LDURSH_Rt_ADDR_SIMM9(LDURSH_Rt_ADDR_SIMM9),
-    LDURSW_Rt_ADDR_SIMM9(LDURSW_Rt_ADDR_SIMM9),
-    LDUR_Ft_ADDR_SIMM9(LDUR_Ft_ADDR_SIMM9),
-    LDUR_Rt_ADDR_SIMM9(LDUR_Rt_ADDR_SIMM9),
-    PRFUM_PRFOP_ADDR_SIMM9(PRFUM_PRFOP_ADDR_SIMM9),
-    ST2G_Rt_SP_ADDR_SIMM13(ST2G_Rt_SP_ADDR_SIMM13),
-    STG_Rt_SP_ADDR_SIMM13(STG_Rt_SP_ADDR_SIMM13),
-    STLURB_Rt_ADDR_OFFSET(STLURB_Rt_ADDR_OFFSET),
-    STLURH_Rt_ADDR_OFFSET(STLURH_Rt_ADDR_OFFSET),
-    STLUR_Rt_ADDR_OFFSET(STLUR_Rt_ADDR_OFFSET),
-    STLUR_Rt_X_ADDR_OFFSET(STLUR_Rt_X_ADDR_OFFSET),
-    STURB_Rt_ADDR_SIMM9(STURB_Rt_ADDR_SIMM9),
-    STURH_Rt_ADDR_SIMM9(STURH_Rt_ADDR_SIMM9),
-    STUR_Ft_ADDR_SIMM9(STUR_Ft_ADDR_SIMM9),
-    STUR_Rt_ADDR_SIMM9(STUR_Rt_ADDR_SIMM9),
-    STZ2G_Rt_SP_ADDR_SIMM13(STZ2G_Rt_SP_ADDR_SIMM13),
-    STZG_Rt_SP_ADDR_SIMM13(STZG_Rt_SP_ADDR_SIMM13),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LOG_IMM {
-    ANDS_Rd_Rn_LIMM(ANDS_Rd_Rn_LIMM),
-    AND_Rd_SP_Rn_LIMM(AND_Rd_SP_Rn_LIMM),
-    EOR_Rd_SP_Rn_LIMM(EOR_Rd_SP_Rn_LIMM),
-    ORR_Rd_SP_Rn_LIMM(ORR_Rd_SP_Rn_LIMM),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LOG_SHIFT {
-    ANDS_Rd_Rn_Rm_SFT(ANDS_Rd_Rn_Rm_SFT),
-    AND_Rd_Rn_Rm_SFT(AND_Rd_Rn_Rm_SFT),
-    BICS_Rd_Rn_Rm_SFT(BICS_Rd_Rn_Rm_SFT),
-    BIC_Rd_Rn_Rm_SFT(BIC_Rd_Rn_Rm_SFT),
-    EON_Rd_Rn_Rm_SFT(EON_Rd_Rn_Rm_SFT),
-    EOR_Rd_Rn_Rm_SFT(EOR_Rd_Rn_Rm_SFT),
-    ORN_Rd_Rn_Rm_SFT(ORN_Rd_Rn_Rm_SFT),
-    ORR_Rd_Rn_Rm_SFT(ORR_Rd_Rn_Rm_SFT),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum MOVEWIDE {
-    MOVK_Rd_HALF(MOVK_Rd_HALF),
-    MOVN_Rd_HALF(MOVN_Rd_HALF),
-    MOVZ_Rd_HALF(MOVZ_Rd_HALF),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum PCRELADDR {
-    ADRP_Rd_ADDR_ADRP(ADRP_Rd_ADDR_ADRP),
-    ADR_Rd_ADDR_PCREL21(ADR_Rd_ADDR_PCREL21),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum TESTBRANCH {
-    TBNZ_Rt_BIT_NUM_ADDR_PCREL14(TBNZ_Rt_BIT_NUM_ADDR_PCREL14),
-    TBZ_Rt_BIT_NUM_ADDR_PCREL14(TBZ_Rt_BIT_NUM_ADDR_PCREL14),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum Operation {
-    ADDSUB_CARRY(ADDSUB_CARRY),
-    ADDSUB_EXT(ADDSUB_EXT),
-    ADDSUB_IMM(ADDSUB_IMM),
-    ADDSUB_SHIFT(ADDSUB_SHIFT),
-    ASIMDALL(ASIMDALL),
-    ASIMDDIFF(ASIMDDIFF),
-    ASIMDELEM(ASIMDELEM),
-    ASIMDEXT(ASIMDEXT),
-    ASIMDIMM(ASIMDIMM),
-    ASIMDINS(ASIMDINS),
-    ASIMDMISC(ASIMDMISC),
-    ASIMDPERM(ASIMDPERM),
-    ASIMDSAME(ASIMDSAME),
-    ASIMDSHF(ASIMDSHF),
-    ASIMDTBL(ASIMDTBL),
-    ASISDDIFF(ASISDDIFF),
-    ASISDELEM(ASISDELEM),
-    ASISDLSE(ASISDLSE),
-    ASISDLSEP(ASISDLSEP),
-    ASISDLSO(ASISDLSO),
-    ASISDLSOP(ASISDLSOP),
-    ASISDMISC(ASISDMISC),
-    ASISDONE(ASISDONE),
-    ASISDPAIR(ASISDPAIR),
-    ASISDSAME(ASISDSAME),
-    ASISDSHF(ASISDSHF),
-    BITFIELD(BITFIELD),
-    BRANCH_IMM(BRANCH_IMM),
-    BRANCH_REG(BRANCH_REG),
-    COMPBRANCH(COMPBRANCH),
-    CONDBRANCH(CONDBRANCH),
-    CONDCMP_IMM(CONDCMP_IMM),
-    CONDCMP_REG(CONDCMP_REG),
-    CONDSEL(CONDSEL),
-    FLOAT2FIX(FLOAT2FIX),
-    FLOAT2INT(FLOAT2INT),
-    FLOATCCMP(FLOATCCMP),
-    FLOATCMP(FLOATCMP),
-    FLOATIMM(FLOATIMM),
-    FLOATSEL(FLOATSEL),
-    LDSTPAIR_INDEXED(LDSTPAIR_INDEXED),
-    LDSTPAIR_OFF(LDSTPAIR_OFF),
-    LDST_IMM10(LDST_IMM10),
-    LDST_IMM9(LDST_IMM9),
-    LDST_POS(LDST_POS),
-    LDST_REGOFF(LDST_REGOFF),
-    LDST_UNPRIV(LDST_UNPRIV),
-    LDST_UNSCALED(LDST_UNSCALED),
-    LOG_IMM(LOG_IMM),
-    LOG_SHIFT(LOG_SHIFT),
-    MOVEWIDE(MOVEWIDE),
-    PCRELADDR(PCRELADDR),
-    TESTBRANCH(TESTBRANCH),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub struct Opcode {
-    pub mnemonic: Mnemonic,
-    pub operation: Operation,
-}
-impl ABS_Vd_Vn {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "abs",
-        aliases: &[],
-        opcode: 0xe20b800,
-        mask: 0xbf3ffc00,
-        class: InsnClass::ASIMDMISC,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#abs,
-            operation: Operation::ASIMDMISC(ASIMDMISC::ABS_Vd_Vn(ABS_Vd_Vn::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ABS_Vd_Vn {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ABS_Sd_Sn {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "abs",
-        aliases: &[],
-        opcode: 0x5e20b800,
-        mask: 0xff3ffc00,
-        class: InsnClass::ASISDMISC,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Sd,
-                class: InsnOperandClass::SISD_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Sn,
-                class: InsnOperandClass::SISD_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMD_SCALAR_SIZE.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#abs,
-            operation: Operation::ASISDMISC(ASISDMISC::ABS_Sd_Sn(ABS_Sd_Sn::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ABS_Sd_Sn {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADC_Rd_Rn_Rm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "adc",
-        aliases: &[],
-        opcode: 0x1a000000,
-        mask: 0x7fe0fc00,
-        class: InsnClass::ADDSUB_CARRY,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#adc,
-            operation: Operation::ADDSUB_CARRY(ADDSUB_CARRY::ADC_Rd_Rn_Rm(ADC_Rd_Rn_Rm::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for ADC_Rd_Rn_Rm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADCS_Rd_Rn_Rm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "adcs",
-        aliases: &[],
-        opcode: 0x3a000000,
-        mask: 0x7fe0fc00,
-        class: InsnClass::ADDSUB_CARRY,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#adcs,
-            operation: Operation::ADDSUB_CARRY(ADDSUB_CARRY::ADCS_Rd_Rn_Rm(ADCS_Rd_Rn_Rm::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for ADCS_Rd_Rn_Rm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADD_Rd_SP_Rn_SP_AIMM {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "add",
-        aliases: &[],
-        opcode: 0x11000000,
-        mask: 0x7f800000,
-        class: InsnClass::ADDSUB_IMM,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::AIMM,
-                class: InsnOperandClass::IMMEDIATE,
-                qualifiers: &[],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::shift,
-                        lsb: 22,
-                        width: 2,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(
-            InsnFlags::HAS_ALIAS.bits() | InsnFlags::HAS_SF_FIELD.bits(),
-        ),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#add,
-            operation: Operation::ADDSUB_IMM(ADDSUB_IMM::ADD_Rd_SP_Rn_SP_AIMM(
-                ADD_Rd_SP_Rn_SP_AIMM::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for ADD_Rd_SP_Rn_SP_AIMM {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADD_Rd_Rn_Rm_SFT {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "add",
-        aliases: &[],
-        opcode: 0xb000000,
-        mask: 0x7f200000,
-        class: InsnClass::ADDSUB_SHIFT,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm_SFT,
-                class: InsnOperandClass::MODIFIED_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#add,
-            operation: Operation::ADDSUB_SHIFT(ADDSUB_SHIFT::ADD_Rd_Rn_Rm_SFT(
-                ADD_Rd_Rn_Rm_SFT::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for ADD_Rd_Rn_Rm_SFT {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADD_Rd_SP_Rn_SP_Rm_EXT {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "add",
-        aliases: &[],
-        opcode: 0xb200000,
-        mask: 0x7fe00000,
-        class: InsnClass::ADDSUB_EXT,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::W,
-                    InsnOperandQualifier::X,
-                    InsnOperandQualifier::X,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::W,
-                    InsnOperandQualifier::X,
-                    InsnOperandQualifier::X,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm_EXT,
-                class: InsnOperandClass::MODIFIED_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::W,
-                    InsnOperandQualifier::W,
-                    InsnOperandQualifier::X,
-                ],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#add,
-            operation: Operation::ADDSUB_EXT(ADDSUB_EXT::ADD_Rd_SP_Rn_SP_Rm_EXT(
-                ADD_Rd_SP_Rn_SP_Rm_EXT::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for ADD_Rd_SP_Rn_SP_Rm_EXT {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADD_Vd_Vn_Vm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "add",
-        aliases: &[],
-        opcode: 0xe208400,
-        mask: 0xbf20fc00,
-        class: InsnClass::ASIMDSAME,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vm,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#add,
-            operation: Operation::ASIMDSAME(ASIMDSAME::ADD_Vd_Vn_Vm(ADD_Vd_Vn_Vm::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ADD_Vd_Vn_Vm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADD_Sd_Sn_Sm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "add",
-        aliases: &[],
-        opcode: 0x5ee08400,
-        mask: 0xffe0fc00,
-        class: InsnClass::ASISDSAME,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Sd,
-                class: InsnOperandClass::SISD_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Sn,
-                class: InsnOperandClass::SISD_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Sm,
-                class: InsnOperandClass::SISD_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMD_SCALAR_SIZE.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#add,
-            operation: Operation::ASISDSAME(ASISDSAME::ADD_Sd_Sn_Sm(ADD_Sd_Sn_Sm::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ADD_Sd_Sn_Sm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "addg",
-        aliases: &[],
-        opcode: 0x91800000,
-        mask: 0xffc0c000,
-        class: InsnClass::ADDSUB_IMM,
-        feature_set: InsnFeatureSet::MEMTAG,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::UIMM10,
-                class: InsnOperandClass::IMMEDIATE,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::immr,
-                    lsb: 16,
-                    width: 6,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::UIMM4_ADDG,
-                class: InsnOperandClass::IMMEDIATE,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::imm4_10,
-                    lsb: 10,
-                    width: 4,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#addg,
-            operation: Operation::ADDSUB_IMM(ADDSUB_IMM::ADDG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG(
-                ADDG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for ADDG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDHN_Vd_Vn_Vm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "addhn",
-        aliases: &[],
-        opcode: 0xe204000,
-        mask: 0xff20fc00,
-        class: InsnClass::ASIMDDIFF,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_2S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vm,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#addhn,
-            operation: Operation::ASIMDDIFF(ASIMDDIFF::ADDHN_Vd_Vn_Vm(ADDHN_Vd_Vn_Vm::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ADDHN_Vd_Vn_Vm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDHN2_Vd_Vn_Vm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "addhn2",
-        aliases: &[],
-        opcode: 0x4e204000,
-        mask: 0xff20fc00,
-        class: InsnClass::ASIMDDIFF,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vm,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#addhn2,
-            operation: Operation::ASIMDDIFF(ASIMDDIFF::ADDHN2_Vd_Vn_Vm(ADDHN2_Vd_Vn_Vm::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for ADDHN2_Vd_Vn_Vm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDP_Sd_Vn {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "addp",
-        aliases: &[],
-        opcode: 0x5e31b800,
-        mask: 0xff3ffc00,
-        class: InsnClass::ASISDPAIR,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Sd,
-                class: InsnOperandClass::SISD_REG,
-                qualifiers: &[InsnOperandQualifier::S_D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[InsnOperandQualifier::V_2D],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#addp,
-            operation: Operation::ASISDPAIR(ASISDPAIR::ADDP_Sd_Vn(ADDP_Sd_Vn::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ADDP_Sd_Vn {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDP_Vd_Vn_Vm {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "addp",
-        aliases: &[],
-        opcode: 0xe20bc00,
-        mask: 0xbf20fc00,
-        class: InsnClass::ASIMDSAME,
-        feature_set: InsnFeatureSet::SIMD,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Vd,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vn,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Vm,
-                class: InsnOperandClass::SIMD_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::V_8B,
-                    InsnOperandQualifier::V_16B,
-                    InsnOperandQualifier::V_4H,
-                    InsnOperandQualifier::V_8H,
-                    InsnOperandQualifier::V_2S,
-                    InsnOperandQualifier::V_4S,
-                    InsnOperandQualifier::V_2D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rm,
-                    lsb: 16,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#addp,
-            operation: Operation::ASIMDSAME(ASIMDSAME::ADDP_Vd_Vn_Vm(ADDP_Vd_Vn_Vm::from(bits))),
-        }
-    }
-}
-impl InsnOpcode for ADDP_Vd_Vn_Vm {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDS_Rd_Rn_SP_AIMM {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "adds",
-        aliases: &[],
-        opcode: 0x31000000,
-        mask: 0x7f800000,
-        class: InsnClass::ADDSUB_IMM,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn_SP,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::AIMM,
-                class: InsnOperandClass::IMMEDIATE,
-                qualifiers: &[],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::shift,
-                        lsb: 22,
-                        width: 2,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(
-            InsnFlags::HAS_ALIAS.bits() | InsnFlags::HAS_SF_FIELD.bits(),
-        ),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#adds,
-            operation: Operation::ADDSUB_IMM(ADDSUB_IMM::ADDS_Rd_Rn_SP_AIMM(
-                ADDS_Rd_Rn_SP_AIMM::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for ADDS_Rd_Rn_SP_AIMM {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl ADDS_Rd_Rn_Rm_SFT {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "adds",
-        aliases: &[],
-        opcode: 0x2b000000,
-        mask: 0x7f200000,
-        class: InsnClass::ADDSUB_SHIFT,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rd,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rn,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::Rm_SFT,
-                class: InsnOperandClass::MODIFIED_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(
-            InsnFlags::HAS_ALIAS.bits() | InsnFlags::HAS_SF_FIELD.bits(),
-        ),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#adds,
-            operation: Operation::ADDSUB_SHIFT(ADDSUB_SHIFT::ADDS_Rd_Rn_Rm_SFT(
-                ADDS_Rd_Rn_Rm_SFT::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for ADDS_Rd_Rn_Rm_SFT {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
 }
