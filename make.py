@@ -22,11 +22,12 @@ if not CARGO:
     exit(1)
 
 GIT_REPO = "https://github.com/kromych/disarm64"
-MENMONICS_LIST_FILE = "menmonics_all.txt"
-MENMONICS_FILE = "menmonics.txt"
+# MENMONICS_LIST_FILE = "menmonics_all.txt"
+# MENMONICS_FILE = "menmonics.txt"
+CLASSES_FILE = "classes.txt"
 DISARM_GEN_OUT_PATH = "target/disarm64_gen/decoder.rs"
 DISARM_GEN_ARGS = [
-    "-a", "cond"
+    "-a", "cond",
 ]
 OUTPUT_PATH = "src/decoder"
 CHUNK_SIZE = 2000 # number of lines
@@ -41,37 +42,22 @@ def main():
 
     print("parsing input menmonics")
 
-    menmonic_matchers = []
-    with open(MENMONICS_FILE, "r") as f:
+    classes = []
+    with open(CLASSES_FILE, "r") as f:
         lines = f.readlines()
         for l in lines:
             l = l.strip()
             if not l or l.startswith("#"):
                 continue
-            menmonic_matchers.append(make_matcher(l))
+            classes.append(l.lower())
 
-    print(f"parsed {len(menmonic_matchers)} menmonics")
-
-    include_menmonics = []
-    with open(MENMONICS_LIST_FILE, "r") as f:
-        lines = f.readlines()
-        for l in lines:
-            l = l.strip()
-            if not l or l.startswith("#"):
-                continue
-            for matcher in menmonic_matchers:
-                if matcher(l):
-                    include_menmonics.append(l)
-                    break
-            
-
-    print(f"found {len(include_menmonics)} menmonics")
+    print(f"parsed {len(classes)} classes")
     
     disarm_gen_args = [
         CARGO, "run", "--bin", "disarm64_gen", "--",
         "aarch64.json",
         "-r", "../" + DISARM_GEN_OUT_PATH,
-        "-m", ",".join(include_menmonics),
+        "-c", ",".join(classes),
     ] + DISARM_GEN_ARGS
     print(f"running disarm64_gen")
     subprocess.run(disarm_gen_args, cwd="disarm64", check=True)
@@ -193,7 +179,7 @@ def run_extra_checks():
     print("running extra checks")
     subprocess.run([CARGO, "fmt"], check=True)
     # make sure it builds
-    subprocess.run([CARGO, "build"], check=True)
+    subprocess.run([CARGO, "test"], check=True)
     subprocess.run([CARGO, "clippy"], check=True)
 
 if __name__ == "__main__":

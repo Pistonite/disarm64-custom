@@ -5,1895 +5,62 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 use super::*;
-impl LDR_SVE_PNt_SVE_ADDR_RI_S9xVL {
+impl InsnOpcode for SSRA_Vd_Vn_IMM_VLSR {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SSRA_Sd_Sn_IMM_VLSR {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldr",
+        mnemonic: "ssra",
         aliases: &[],
-        opcode: 0x85800000,
-        mask: 0xffc0e010,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE,
+        opcode: 0x5f001400,
+        mask: 0xff80fc00,
+        class: InsnClass::ASISDSHF,
+        feature_set: InsnFeatureSet::SIMD,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::SVE_PNt,
-                class: InsnOperandClass::PRED_REG,
-                qualifiers: &[],
+                kind: InsnOperandKind::Sd,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_D],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Pt,
+                    bitfield: InsnBitField::Rd,
                     lsb: 0,
-                    width: 4,
+                    width: 5,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::SVE_ADDR_RI_S9xVL,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
+                kind: InsnOperandKind::Sn,
+                class: InsnOperandClass::SISD_REG,
+                qualifiers: &[InsnOperandQualifier::S_D],
                 bit_fields: &[BitfieldSpec {
                     bitfield: InsnBitField::Rn,
                     lsb: 5,
                     width: 5,
                 }],
             },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldr,
-            operation: Operation::SVE_MISC(SVE_MISC::LDR_SVE_PNt_SVE_ADDR_RI_S9xVL(
-                LDR_SVE_PNt_SVE_ADDR_RI_S9xVL::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDR_SVE_PNt_SVE_ADDR_RI_S9xVL {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDR_SVE_Zt_SVE_ADDR_RI_S9xVL {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldr",
-        aliases: &[],
-        opcode: 0x85804000,
-        mask: 0xffc0e000,
-        class: InsnClass::SVE_MISC,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
             InsnOperand {
-                kind: InsnOperandKind::SVE_Zt,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_ADDR_RI_S9xVL,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rn,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldr,
-            operation: Operation::SVE_MISC(SVE_MISC::LDR_SVE_Zt_SVE_ADDR_RI_S9xVL(
-                LDR_SVE_Zt_SVE_ADDR_RI_S9xVL::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDR_SVE_Zt_SVE_ADDR_RI_S9xVL {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDR_Ft_ADDR_PCREL19 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldr",
-        aliases: &[],
-        opcode: 0x1c000000,
-        mask: 0x3f000000,
-        class: InsnClass::LOADLIT,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_PCREL19,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::imm19,
-                    lsb: 5,
-                    width: 19,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldr,
-            operation: Operation::LOADLIT(LOADLIT::LDR_Ft_ADDR_PCREL19(LDR_Ft_ADDR_PCREL19::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for LDR_Ft_ADDR_PCREL19 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDR_Ft_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldr",
-        aliases: &[],
-        opcode: 0x3c600800,
-        mask: 0x3f600c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldr,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::LDR_Ft_ADDR_REGOFF(
-                LDR_Ft_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDR_Ft_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDR_Ft_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldr",
-        aliases: &[],
-        opcode: 0x3c400400,
-        mask: 0x3f600400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldr,
-            operation: Operation::LDST_IMM9(LDST_IMM9::LDR_Ft_ADDR_SIMM9(LDR_Ft_ADDR_SIMM9::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for LDR_Ft_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDR_Ft_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldr",
-        aliases: &[],
-        opcode: 0x3d400000,
-        mask: 0x3f400000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldr,
-            operation: Operation::LDST_POS(LDST_POS::LDR_Ft_ADDR_UIMM12(LDR_Ft_ADDR_UIMM12::from(
-                bits,
-            ))),
-        }
-    }
-}
-impl InsnOpcode for LDR_Ft_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRAA_Rt_ADDR_SIMM10 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldraa",
-        aliases: &[],
-        opcode: 0xf8200400,
-        mask: 0xffa00400,
-        class: InsnClass::LDST_IMM10,
-        feature_set: InsnFeatureSet::PAC,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM10,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::S_imm10,
-                        lsb: 22,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldraa,
-            operation: Operation::LDST_IMM10(LDST_IMM10::LDRAA_Rt_ADDR_SIMM10(
-                LDRAA_Rt_ADDR_SIMM10::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRAA_Rt_ADDR_SIMM10 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRAB_Rt_ADDR_SIMM10 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrab",
-        aliases: &[],
-        opcode: 0xf8a00400,
-        mask: 0xffa00400,
-        class: InsnClass::LDST_IMM10,
-        feature_set: InsnFeatureSet::PAC,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM10,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::S_imm10,
-                        lsb: 22,
-                        width: 1,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrab,
-            operation: Operation::LDST_IMM10(LDST_IMM10::LDRAB_Rt_ADDR_SIMM10(
-                LDRAB_Rt_ADDR_SIMM10::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRAB_Rt_ADDR_SIMM10 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRB_Rt_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrb",
-        aliases: &[],
-        opcode: 0x38600800,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrb,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::LDRB_Rt_ADDR_REGOFF(
-                LDRB_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRB_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRB_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrb",
-        aliases: &[],
-        opcode: 0x38400400,
-        mask: 0xffe00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrb,
-            operation: Operation::LDST_IMM9(LDST_IMM9::LDRB_Rt_ADDR_SIMM9(
-                LDRB_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRB_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRB_Rt_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrb",
-        aliases: &[],
-        opcode: 0x39400000,
-        mask: 0xffc00000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrb,
-            operation: Operation::LDST_POS(LDST_POS::LDRB_Rt_ADDR_UIMM12(
-                LDRB_Rt_ADDR_UIMM12::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRB_Rt_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRH_Rt_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrh",
-        aliases: &[],
-        opcode: 0x78600800,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrh,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::LDRH_Rt_ADDR_REGOFF(
-                LDRH_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRH_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRH_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrh",
-        aliases: &[],
-        opcode: 0x78400400,
-        mask: 0xffe00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrh,
-            operation: Operation::LDST_IMM9(LDST_IMM9::LDRH_Rt_ADDR_SIMM9(
-                LDRH_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRH_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRH_Rt_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrh",
-        aliases: &[],
-        opcode: 0x79400000,
-        mask: 0xffc00000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrh,
-            operation: Operation::LDST_POS(LDST_POS::LDRH_Rt_ADDR_UIMM12(
-                LDRH_Rt_ADDR_UIMM12::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRH_Rt_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSB_Rt_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsb",
-        aliases: &[],
-        opcode: 0x38a00800,
-        mask: 0xffa00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_B],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsb,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::LDRSB_Rt_ADDR_REGOFF(
-                LDRSB_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSB_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSB_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsb",
-        aliases: &[],
-        opcode: 0x38800400,
-        mask: 0xffa00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_B],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsb,
-            operation: Operation::LDST_IMM9(LDST_IMM9::LDRSB_Rt_ADDR_SIMM9(
-                LDRSB_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSB_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSB_Rt_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsb",
-        aliases: &[],
-        opcode: 0x39800000,
-        mask: 0xff800000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_B],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsb,
-            operation: Operation::LDST_POS(LDST_POS::LDRSB_Rt_ADDR_UIMM12(
-                LDRSB_Rt_ADDR_UIMM12::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSB_Rt_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSH_Rt_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsh",
-        aliases: &[],
-        opcode: 0x78a00800,
-        mask: 0xffa00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_H],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsh,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::LDRSH_Rt_ADDR_REGOFF(
-                LDRSH_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSH_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSH_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsh",
-        aliases: &[],
-        opcode: 0x78800400,
-        mask: 0xffa00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsh,
-            operation: Operation::LDST_IMM9(LDST_IMM9::LDRSH_Rt_ADDR_SIMM9(
-                LDRSH_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSH_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSH_Rt_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsh",
-        aliases: &[],
-        opcode: 0x79800000,
-        mask: 0xff800000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsh,
-            operation: Operation::LDST_POS(LDST_POS::LDRSH_Rt_ADDR_UIMM12(
-                LDRSH_Rt_ADDR_UIMM12::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSH_Rt_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSW_Rt_ADDR_PCREL19 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsw",
-        aliases: &[],
-        opcode: 0x98000000,
-        mask: 0xff000000,
-        class: InsnClass::LOADLIT,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_PCREL19,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::imm19,
-                    lsb: 5,
-                    width: 19,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsw,
-            operation: Operation::LOADLIT(LOADLIT::LDRSW_Rt_ADDR_PCREL19(
-                LDRSW_Rt_ADDR_PCREL19::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSW_Rt_ADDR_PCREL19 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSW_Rt_ADDR_REGOFF {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsw",
-        aliases: &[],
-        opcode: 0xb8a00800,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_REGOFF,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_REGOFF,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsw,
-            operation: Operation::LDST_REGOFF(LDST_REGOFF::LDRSW_Rt_ADDR_REGOFF(
-                LDRSW_Rt_ADDR_REGOFF::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSW_Rt_ADDR_REGOFF {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSW_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsw",
-        aliases: &[],
-        opcode: 0xb8800400,
-        mask: 0xffe00400,
-        class: InsnClass::LDST_IMM9,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsw,
-            operation: Operation::LDST_IMM9(LDST_IMM9::LDRSW_Rt_ADDR_SIMM9(
-                LDRSW_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSW_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDRSW_Rt_ADDR_UIMM12 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldrsw",
-        aliases: &[],
-        opcode: 0xb9800000,
-        mask: 0xffc00000,
-        class: InsnClass::LDST_POS,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_UIMM12,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::Rn,
-                        lsb: 5,
-                        width: 5,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm12,
-                        lsb: 10,
-                        width: 12,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldrsw,
-            operation: Operation::LDST_POS(LDST_POS::LDRSW_Rt_ADDR_UIMM12(
-                LDRSW_Rt_ADDR_UIMM12::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDRSW_Rt_ADDR_UIMM12 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDUR_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldur",
-        aliases: &[],
-        opcode: 0xb8400000,
-        mask: 0xbfe00c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_ADVSIMV_GPRSIZE_IN_Q.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldur,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDUR_Rt_ADDR_SIMM9(
-                LDUR_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDUR_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDUR_Ft_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldur",
-        aliases: &[],
-        opcode: 0x3c400000,
-        mask: 0x3f600c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Ft,
-                class: InsnOperandClass::FP_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_Q,
-                ],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldur,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDUR_Ft_ADDR_SIMM9(
-                LDUR_Ft_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDUR_Ft_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDURB_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldurb",
-        aliases: &[],
-        opcode: 0x38400000,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldurb,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDURB_Rt_ADDR_SIMM9(
-                LDURB_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDURB_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDURH_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldurh",
-        aliases: &[],
-        opcode: 0x78400000,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldurh,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDURH_Rt_ADDR_SIMM9(
-                LDURH_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDURH_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDURSB_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldursb",
-        aliases: &[],
-        opcode: 0x38800000,
-        mask: 0xffa00c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_B, InsnOperandQualifier::S_B],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldursb,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDURSB_Rt_ADDR_SIMM9(
-                LDURSB_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDURSB_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDURSH_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldursh",
-        aliases: &[],
-        opcode: 0x78800000,
-        mask: 0xffa00c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_H, InsnOperandQualifier::S_H],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::const_from_bits(InsnFlags::HAS_LDS_SIZE_IN_BIT_22.bits()),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldursh,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDURSH_Rt_ADDR_SIMM9(
-                LDURSH_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDURSH_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LDURSW_Rt_ADDR_SIMM9 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "ldursw",
-        aliases: &[],
-        opcode: 0xb8800000,
-        mask: 0xffe00c00,
-        class: InsnClass::LDST_UNSCALED,
-        feature_set: InsnFeatureSet::V8,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::Rt,
-                class: InsnOperandClass::INT_REG,
-                qualifiers: &[InsnOperandQualifier::X],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::Rt,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::ADDR_SIMM9,
-                class: InsnOperandClass::ADDRESS,
-                qualifiers: &[InsnOperandQualifier::S_S],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::imm9,
-                        lsb: 12,
-                        width: 9,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::index,
-                        lsb: 11,
-                        width: 1,
-                    },
-                ],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#ldursw,
-            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::LDURSW_Rt_ADDR_SIMM9(
-                LDURSW_Rt_ADDR_SIMM9::from(bits),
-            )),
-        }
-    }
-}
-impl InsnOpcode for LDURSW_Rt_ADDR_SIMM9 {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_SHLIMM_PRED {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "lsl",
-        aliases: &[],
-        opcode: 0x4038000,
-        mask: 0xff3fe000,
-        class: InsnClass::SVE_SHIFT_PRED,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Pg3,
-                class: InsnOperandClass::PRED_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Pg3,
-                    lsb: 10,
-                    width: 3,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_SHLIMM_PRED,
+                kind: InsnOperandKind::IMM_VLSR,
                 class: InsnOperandClass::IMMEDIATE,
-                qualifiers: &[],
-                bit_fields: &[
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_tszh,
-                        lsb: 22,
-                        width: 2,
-                    },
-                    BitfieldSpec {
-                        bitfield: InsnBitField::SVE_imm5,
-                        lsb: 5,
-                        width: 5,
-                    },
-                ],
+                qualifiers: &[InsnOperandQualifier::S_D],
+                bit_fields: &[],
             },
         ],
         flags: InsnFlags::empty(),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#lsl,
-            operation: Operation::SVE_SHIFT_PRED(
-                SVE_SHIFT_PRED::LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_SHLIMM_PRED(
-                    LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_SHLIMM_PRED::from(bits),
-                ),
-            ),
-        }
-    }
-}
-impl InsnOpcode for LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_SHLIMM_PRED {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "lsl",
-        aliases: &[],
-        opcode: 0x4138000,
-        mask: 0xff3fe000,
-        class: InsnClass::SVE_SIZE_BHSD,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Pg3,
-                class: InsnOperandClass::PRED_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Pg3,
-                    lsb: 10,
-                    width: 3,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm_5,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zm_5,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#lsl,
-            operation: Operation::SVE_SIZE_BHSD(SVE_SIZE_BHSD::LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5(
-                LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5::from(bits),
+            mnemonic: Mnemonic::r#ssra,
+            operation: Operation::ASISDSHF(ASISDSHF::SSRA_Sd_Sn_IMM_VLSR(
+                SSRA_Sd_Sn_IMM_VLSR::from(bits),
             )),
         }
     }
 }
-impl InsnOpcode for LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
+impl InsnOpcode for SSRA_Sd_Sn_IMM_VLSR {
     fn definition(&self) -> &'static Insn {
         &Self::DEFINITION
     }
@@ -1901,152 +68,1946 @@ impl InsnOpcode for LSL_SVE_Zd_SVE_Pg3_SVE_Zd_SVE_Zm_5 {
         (*self).into()
     }
 }
-impl LSL_SVE_Zd_S_B_SVE_Pg3_P_M_SVE_Zd_S_B_SVE_Zm_5_S_D {
+impl SSUBL_Vd_Vn_Vm {
     pub const DEFINITION: Insn = Insn {
-        mnemonic: "lsl",
+        mnemonic: "ssubl",
         aliases: &[],
-        opcode: 0x41b8000,
-        mask: 0xff3fe000,
-        class: InsnClass::SVE_SIZE_BHS,
-        feature_set: InsnFeatureSet::SVE,
-        operands: &[
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Pg3,
-                class: InsnOperandClass::PRED_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                    InsnOperandQualifier::P_M,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Pg3,
-                    lsb: 10,
-                    width: 3,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
-                    lsb: 0,
-                    width: 5,
-                }],
-            },
-            InsnOperand {
-                kind: InsnOperandKind::SVE_Zm_5,
-                class: InsnOperandClass::SVE_REG,
-                qualifiers: &[
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_D,
-                ],
-                bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zm_5,
-                    lsb: 5,
-                    width: 5,
-                }],
-            },
-        ],
-        flags: InsnFlags::empty(),
-    };
-    pub(crate) fn make_opcode(bits: u32) -> Opcode {
-        Opcode {
-            mnemonic: Mnemonic::r#lsl,
-            operation: Operation::SVE_SIZE_BHS(
-                SVE_SIZE_BHS::LSL_SVE_Zd_S_B_SVE_Pg3_P_M_SVE_Zd_S_B_SVE_Zm_5_S_D(
-                    LSL_SVE_Zd_S_B_SVE_Pg3_P_M_SVE_Zd_S_B_SVE_Zm_5_S_D::from(bits),
-                ),
-            ),
-        }
-    }
-}
-impl InsnOpcode for LSL_SVE_Zd_S_B_SVE_Pg3_P_M_SVE_Zd_S_B_SVE_Zm_5_S_D {
-    fn definition(&self) -> &'static Insn {
-        &Self::DEFINITION
-    }
-    fn bits(&self) -> u32 {
-        (*self).into()
-    }
-}
-impl LSL_SVE_Zd_SVE_Zn_SVE_Zm_16 {
-    pub const DEFINITION: Insn = Insn {
-        mnemonic: "lsl",
-        aliases: &[],
-        opcode: 0x4208c00,
+        opcode: 0xe202000,
         mask: 0xff20fc00,
-        class: InsnClass::SVE_SIZE_BHS,
-        feature_set: InsnFeatureSet::SVE,
+        class: InsnClass::ASIMDDIFF,
+        feature_set: InsnFeatureSet::SIMD,
         operands: &[
             InsnOperand {
-                kind: InsnOperandKind::SVE_Zd,
-                class: InsnOperandClass::SVE_REG,
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
                 qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
                 ],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zd,
+                    bitfield: InsnBitField::Rd,
                     lsb: 0,
                     width: 5,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::SVE_Zn,
-                class: InsnOperandClass::SVE_REG,
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
                 qualifiers: &[
-                    InsnOperandQualifier::S_B,
-                    InsnOperandQualifier::S_H,
-                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_2S,
                 ],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zn,
+                    bitfield: InsnBitField::Rn,
                     lsb: 5,
                     width: 5,
                 }],
             },
             InsnOperand {
-                kind: InsnOperandKind::SVE_Zm_16,
-                class: InsnOperandClass::SVE_REG,
+                kind: InsnOperandKind::Vm,
+                class: InsnOperandClass::SIMD_REG,
                 qualifiers: &[
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_D,
-                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_2S,
                 ],
                 bit_fields: &[BitfieldSpec {
-                    bitfield: InsnBitField::SVE_Zm_16,
+                    bitfield: InsnBitField::Rm,
                     lsb: 16,
                     width: 5,
                 }],
             },
         ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ssubl,
+            operation: Operation::ASIMDDIFF(ASIMDDIFF::SSUBL_Vd_Vn_Vm(SSUBL_Vd_Vn_Vm::from(bits))),
+        }
+    }
+}
+impl InsnOpcode for SSUBL_Vd_Vn_Vm {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SSUBL2_Vd_Vn_Vm {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "ssubl2",
+        aliases: &[],
+        opcode: 0x4e202000,
+        mask: 0xff20fc00,
+        class: InsnClass::ASIMDDIFF,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vm,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rm,
+                    lsb: 16,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ssubl2,
+            operation: Operation::ASIMDDIFF(ASIMDDIFF::SSUBL2_Vd_Vn_Vm(SSUBL2_Vd_Vn_Vm::from(
+                bits,
+            ))),
+        }
+    }
+}
+impl InsnOpcode for SSUBL2_Vd_Vn_Vm {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SSUBW_Vd_Vn_Vm {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "ssubw",
+        aliases: &[],
+        opcode: 0xe203000,
+        mask: 0xff20fc00,
+        class: InsnClass::ASIMDDIFF,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vm,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_2S,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rm,
+                    lsb: 16,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ssubw,
+            operation: Operation::ASIMDDIFF(ASIMDDIFF::SSUBW_Vd_Vn_Vm(SSUBW_Vd_Vn_Vm::from(bits))),
+        }
+    }
+}
+impl InsnOpcode for SSUBW_Vd_Vn_Vm {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl SSUBW2_Vd_Vn_Vm {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "ssubw2",
+        aliases: &[],
+        opcode: 0x4e203000,
+        mask: 0xff20fc00,
+        class: InsnClass::ASIMDDIFF,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Vd,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rd,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vn,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rn,
+                    lsb: 5,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Vm,
+                class: InsnOperandClass::SIMD_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_4S,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rm,
+                    lsb: 16,
+                    width: 5,
+                }],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SIZEQ_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#ssubw2,
+            operation: Operation::ASIMDDIFF(ASIMDDIFF::SSUBW2_Vd_Vn_Vm(SSUBW2_Vd_Vn_Vm::from(
+                bits,
+            ))),
+        }
+    }
+}
+impl InsnOpcode for SSUBW2_Vd_Vn_Vm {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST1_LVt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st1",
+        aliases: &[],
+        opcode: 0xc000000,
+        mask: 0xbfff0000,
+        class: InsnClass::ASISDLSE,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_1D,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st1,
+            operation: Operation::ASISDLSE(ASISDLSE::ST1_LVt_SIMD_ADDR_SIMPLE(
+                ST1_LVt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST1_LVt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST1_LEt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st1",
+        aliases: &[],
+        opcode: 0xd000000,
+        mask: 0xbfff2000,
+        class: InsnClass::ASISDLSO,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st1,
+            operation: Operation::ASISDLSO(ASISDLSO::ST1_LEt_SIMD_ADDR_SIMPLE(
+                ST1_LEt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST1_LEt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST1_LVt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st1",
+        aliases: &[],
+        opcode: 0xc800000,
+        mask: 0xbfe00000,
+        class: InsnClass::ASISDLSEP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_1D,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st1,
+            operation: Operation::ASISDLSEP(ASISDLSEP::ST1_LVt_SIMD_ADDR_POST(
+                ST1_LVt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST1_LVt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST1_LEt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st1",
+        aliases: &[],
+        opcode: 0xd800000,
+        mask: 0xbfe02000,
+        class: InsnClass::ASISDLSOP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st1,
+            operation: Operation::ASISDLSOP(ASISDLSOP::ST1_LEt_SIMD_ADDR_POST(
+                ST1_LEt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST1_LEt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST2_LVt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st2",
+        aliases: &[],
+        opcode: 0xc000000,
+        mask: 0xbfff0000,
+        class: InsnClass::ASISDLSE,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st2,
+            operation: Operation::ASISDLSE(ASISDLSE::ST2_LVt_SIMD_ADDR_SIMPLE(
+                ST2_LVt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST2_LVt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST2_LEt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st2",
+        aliases: &[],
+        opcode: 0xd200000,
+        mask: 0xbfff2000,
+        class: InsnClass::ASISDLSO,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st2,
+            operation: Operation::ASISDLSO(ASISDLSO::ST2_LEt_SIMD_ADDR_SIMPLE(
+                ST2_LEt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST2_LEt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST2_LVt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st2",
+        aliases: &[],
+        opcode: 0xc800000,
+        mask: 0xbfe00000,
+        class: InsnClass::ASISDLSEP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st2,
+            operation: Operation::ASISDLSEP(ASISDLSEP::ST2_LVt_SIMD_ADDR_POST(
+                ST2_LVt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST2_LVt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST2_LEt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st2",
+        aliases: &[],
+        opcode: 0xda00000,
+        mask: 0xbfe02000,
+        class: InsnClass::ASISDLSOP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st2,
+            operation: Operation::ASISDLSOP(ASISDLSOP::ST2_LEt_SIMD_ADDR_POST(
+                ST2_LEt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST2_LEt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST2G_Rt_SP_ADDR_SIMM13 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st2g",
+        aliases: &[],
+        opcode: 0xd9a00800,
+        mask: 0xffe00c00,
+        class: InsnClass::LDST_UNSCALED,
+        feature_set: InsnFeatureSet::MEMTAG,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt_SP,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X, InsnOperandQualifier::SP],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM13,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::imm_tag, InsnOperandQualifier::imm_tag],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
         flags: InsnFlags::empty(),
     };
     pub(crate) fn make_opcode(bits: u32) -> Opcode {
         Opcode {
-            mnemonic: Mnemonic::r#lsl,
-            operation: Operation::SVE_SIZE_BHS(SVE_SIZE_BHS::LSL_SVE_Zd_SVE_Zn_SVE_Zm_16(
-                LSL_SVE_Zd_SVE_Zn_SVE_Zm_16::from(bits),
+            mnemonic: Mnemonic::r#st2g,
+            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::ST2G_Rt_SP_ADDR_SIMM13(
+                ST2G_Rt_SP_ADDR_SIMM13::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST2G_Rt_SP_ADDR_SIMM13 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST2G_Rt_SP_X_ADDR_SIMM13_imm_tag {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st2g",
+        aliases: &[],
+        opcode: 0xd9a00400,
+        mask: 0xffe00400,
+        class: InsnClass::LDST_IMM9,
+        feature_set: InsnFeatureSet::MEMTAG,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt_SP,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X, InsnOperandQualifier::SP],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM13,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::imm_tag, InsnOperandQualifier::imm_tag],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st2g,
+            operation: Operation::LDST_IMM9(LDST_IMM9::ST2G_Rt_SP_X_ADDR_SIMM13_imm_tag(
+                ST2G_Rt_SP_X_ADDR_SIMM13_imm_tag::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST2G_Rt_SP_X_ADDR_SIMM13_imm_tag {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST3_LVt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st3",
+        aliases: &[],
+        opcode: 0xc000000,
+        mask: 0xbfff0000,
+        class: InsnClass::ASISDLSE,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st3,
+            operation: Operation::ASISDLSE(ASISDLSE::ST3_LVt_SIMD_ADDR_SIMPLE(
+                ST3_LVt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST3_LVt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST3_LEt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st3",
+        aliases: &[],
+        opcode: 0xd002000,
+        mask: 0xbfff2000,
+        class: InsnClass::ASISDLSO,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st3,
+            operation: Operation::ASISDLSO(ASISDLSO::ST3_LEt_SIMD_ADDR_SIMPLE(
+                ST3_LEt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST3_LEt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST3_LVt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st3",
+        aliases: &[],
+        opcode: 0xc800000,
+        mask: 0xbfe00000,
+        class: InsnClass::ASISDLSEP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st3,
+            operation: Operation::ASISDLSEP(ASISDLSEP::ST3_LVt_SIMD_ADDR_POST(
+                ST3_LVt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST3_LVt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST3_LEt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st3",
+        aliases: &[],
+        opcode: 0xd802000,
+        mask: 0xbfe02000,
+        class: InsnClass::ASISDLSOP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_1.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_2.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_3.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st3,
+            operation: Operation::ASISDLSOP(ASISDLSOP::ST3_LEt_SIMD_ADDR_POST(
+                ST3_LEt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST3_LEt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST4_LVt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st4",
+        aliases: &[],
+        opcode: 0xc000000,
+        mask: 0xbfff0000,
+        class: InsnClass::ASISDLSE,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st4,
+            operation: Operation::ASISDLSE(ASISDLSE::ST4_LVt_SIMD_ADDR_SIMPLE(
+                ST4_LVt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST4_LVt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST4_LEt_SIMD_ADDR_SIMPLE {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st4",
+        aliases: &[],
+        opcode: 0xd202000,
+        mask: 0xbfff2000,
+        class: InsnClass::ASISDLSO,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_SIMPLE,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st4,
+            operation: Operation::ASISDLSO(ASISDLSO::ST4_LEt_SIMD_ADDR_SIMPLE(
+                ST4_LEt_SIMD_ADDR_SIMPLE::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST4_LEt_SIMD_ADDR_SIMPLE {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST4_LVt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st4",
+        aliases: &[],
+        opcode: 0xc800000,
+        mask: 0xbfe00000,
+        class: InsnClass::ASISDLSEP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LVt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::V_8B,
+                    InsnOperandQualifier::V_16B,
+                    InsnOperandQualifier::V_4H,
+                    InsnOperandQualifier::V_8H,
+                    InsnOperandQualifier::V_2S,
+                    InsnOperandQualifier::V_4S,
+                    InsnOperandQualifier::V_2D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits()
+                | InsnFlags::HAS_SIZEQ_FIELD.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st4,
+            operation: Operation::ASISDLSEP(ASISDLSEP::ST4_LVt_SIMD_ADDR_POST(
+                ST4_LVt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST4_LVt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl ST4_LEt_SIMD_ADDR_POST {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "st4",
+        aliases: &[],
+        opcode: 0xda02000,
+        mask: 0xbfe02000,
+        class: InsnClass::ASISDLSOP,
+        feature_set: InsnFeatureSet::SIMD,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::LEt,
+                class: InsnOperandClass::SIMD_REGLIST,
+                qualifiers: &[
+                    InsnOperandQualifier::S_B,
+                    InsnOperandQualifier::S_H,
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                ],
+                bit_fields: &[],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::SIMD_ADDR_POST,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(
+            InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_4.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_5.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_6.bits()
+                | InsnFlags::HAS_OPCODE_DEPENDENT_FIELD_7.bits(),
+        ),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#st4,
+            operation: Operation::ASISDLSOP(ASISDLSOP::ST4_LEt_SIMD_ADDR_POST(
+                ST4_LEt_SIMD_ADDR_POST::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for ST4_LEt_SIMD_ADDR_POST {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STG_Rt_SP_ADDR_SIMM13 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stg",
+        aliases: &[],
+        opcode: 0xd9200800,
+        mask: 0xffe00c00,
+        class: InsnClass::LDST_UNSCALED,
+        feature_set: InsnFeatureSet::MEMTAG,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt_SP,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X, InsnOperandQualifier::SP],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM13,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::imm_tag, InsnOperandQualifier::imm_tag],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stg,
+            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::STG_Rt_SP_ADDR_SIMM13(
+                STG_Rt_SP_ADDR_SIMM13::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STG_Rt_SP_ADDR_SIMM13 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STG_Rt_SP_X_ADDR_SIMM13_imm_tag {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stg",
+        aliases: &[],
+        opcode: 0xd9200400,
+        mask: 0xffe00400,
+        class: InsnClass::LDST_IMM9,
+        feature_set: InsnFeatureSet::MEMTAG,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt_SP,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X, InsnOperandQualifier::SP],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM13,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::imm_tag, InsnOperandQualifier::imm_tag],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stg,
+            operation: Operation::LDST_IMM9(LDST_IMM9::STG_Rt_SP_X_ADDR_SIMM13_imm_tag(
+                STG_Rt_SP_X_ADDR_SIMM13_imm_tag::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STG_Rt_SP_X_ADDR_SIMM13_imm_tag {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STGP_Rt_Rt2_ADDR_SIMM11 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stgp",
+        aliases: &[],
+        opcode: 0x69000000,
+        mask: 0xffc00000,
+        class: InsnClass::LDSTPAIR_OFF,
+        feature_set: InsnFeatureSet::MEMTAG,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rt2,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt2,
+                    lsb: 10,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM11,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::imm_tag],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm7,
+                        lsb: 15,
+                        width: 7,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index2,
+                        lsb: 24,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stgp,
+            operation: Operation::LDSTPAIR_OFF(LDSTPAIR_OFF::STGP_Rt_Rt2_ADDR_SIMM11(
+                STGP_Rt_Rt2_ADDR_SIMM11::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STGP_Rt_Rt2_ADDR_SIMM11 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STGP_Rt_X_Rt2_X_ADDR_SIMM11_imm_tag {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stgp",
+        aliases: &[],
+        opcode: 0x68800000,
+        mask: 0xfec00000,
+        class: InsnClass::LDSTPAIR_INDEXED,
+        feature_set: InsnFeatureSet::MEMTAG,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rt2,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt2,
+                    lsb: 10,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM11,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::imm_tag],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm7,
+                        lsb: 15,
+                        width: 7,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index2,
+                        lsb: 24,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stgp,
+            operation: Operation::LDSTPAIR_INDEXED(
+                LDSTPAIR_INDEXED::STGP_Rt_X_Rt2_X_ADDR_SIMM11_imm_tag(
+                    STGP_Rt_X_Rt2_X_ADDR_SIMM11_imm_tag::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for STGP_Rt_X_Rt2_X_ADDR_SIMM11_imm_tag {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STLUR_Rt_ADDR_OFFSET {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stlur",
+        aliases: &[],
+        opcode: 0x99000000,
+        mask: 0xffe00c00,
+        class: InsnClass::LDST_UNSCALED,
+        feature_set: InsnFeatureSet::RCPC2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_OFFSET,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::Rn,
+                        lsb: 5,
+                        width: 5,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stlur,
+            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::STLUR_Rt_ADDR_OFFSET(
+                STLUR_Rt_ADDR_OFFSET::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STLUR_Rt_ADDR_OFFSET {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STLUR_Rt_X_ADDR_OFFSET {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stlur",
+        aliases: &[],
+        opcode: 0xd9000000,
+        mask: 0xffe00c00,
+        class: InsnClass::LDST_UNSCALED,
+        feature_set: InsnFeatureSet::RCPC2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_OFFSET,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::Rn,
+                        lsb: 5,
+                        width: 5,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stlur,
+            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::STLUR_Rt_X_ADDR_OFFSET(
+                STLUR_Rt_X_ADDR_OFFSET::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STLUR_Rt_X_ADDR_OFFSET {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STLURB_Rt_ADDR_OFFSET {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stlurb",
+        aliases: &[],
+        opcode: 0x19000000,
+        mask: 0xffe00c00,
+        class: InsnClass::LDST_UNSCALED,
+        feature_set: InsnFeatureSet::RCPC2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_OFFSET,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::Rn,
+                        lsb: 5,
+                        width: 5,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stlurb,
+            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::STLURB_Rt_ADDR_OFFSET(
+                STLURB_Rt_ADDR_OFFSET::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STLURB_Rt_ADDR_OFFSET {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STLURH_Rt_ADDR_OFFSET {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stlurh",
+        aliases: &[],
+        opcode: 0x59000000,
+        mask: 0xffe00c00,
+        class: InsnClass::LDST_UNSCALED,
+        feature_set: InsnFeatureSet::RCPC2,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_OFFSET,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::Rn,
+                        lsb: 5,
+                        width: 5,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm9,
+                        lsb: 12,
+                        width: 9,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index,
+                        lsb: 11,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stlurh,
+            operation: Operation::LDST_UNSCALED(LDST_UNSCALED::STLURH_Rt_ADDR_OFFSET(
+                STLURH_Rt_ADDR_OFFSET::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STLURH_Rt_ADDR_OFFSET {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STP_Rt_Rt2_ADDR_SIMM7 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stp",
+        aliases: &[],
+        opcode: 0x29000000,
+        mask: 0x7fc00000,
+        class: InsnClass::LDSTPAIR_OFF,
+        feature_set: InsnFeatureSet::V8,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rt2,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt2,
+                    lsb: 10,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM7,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm7,
+                        lsb: 15,
+                        width: 7,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index2,
+                        lsb: 24,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stp,
+            operation: Operation::LDSTPAIR_OFF(LDSTPAIR_OFF::STP_Rt_Rt2_ADDR_SIMM7(
+                STP_Rt_Rt2_ADDR_SIMM7::from(bits),
+            )),
+        }
+    }
+}
+impl InsnOpcode for STP_Rt_Rt2_ADDR_SIMM7 {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stp",
+        aliases: &[],
+        opcode: 0x28800000,
+        mask: 0x7ec00000,
+        class: InsnClass::LDSTPAIR_INDEXED,
+        feature_set: InsnFeatureSet::V8,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Rt,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Rt2,
+                class: InsnOperandClass::INT_REG,
+                qualifiers: &[InsnOperandQualifier::W, InsnOperandQualifier::X],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt2,
+                    lsb: 10,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM7,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[InsnOperandQualifier::S_S, InsnOperandQualifier::S_D],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm7,
+                        lsb: 15,
+                        width: 7,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index2,
+                        lsb: 24,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::const_from_bits(InsnFlags::HAS_SF_FIELD.bits()),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stp,
+            operation: Operation::LDSTPAIR_INDEXED(
+                LDSTPAIR_INDEXED::STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(
+                    STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S::from(bits),
+                ),
+            ),
+        }
+    }
+}
+impl InsnOpcode for STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S {
+    fn definition(&self) -> &'static Insn {
+        &Self::DEFINITION
+    }
+    fn bits(&self) -> u32 {
+        (*self).into()
+    }
+}
+impl STP_Ft_Ft2_ADDR_SIMM7 {
+    pub const DEFINITION: Insn = Insn {
+        mnemonic: "stp",
+        aliases: &[],
+        opcode: 0x2d000000,
+        mask: 0x3fc00000,
+        class: InsnClass::LDSTPAIR_OFF,
+        feature_set: InsnFeatureSet::V8,
+        operands: &[
+            InsnOperand {
+                kind: InsnOperandKind::Ft,
+                class: InsnOperandClass::FP_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_Q,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt,
+                    lsb: 0,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::Ft2,
+                class: InsnOperandClass::FP_REG,
+                qualifiers: &[
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_Q,
+                ],
+                bit_fields: &[BitfieldSpec {
+                    bitfield: InsnBitField::Rt2,
+                    lsb: 10,
+                    width: 5,
+                }],
+            },
+            InsnOperand {
+                kind: InsnOperandKind::ADDR_SIMM7,
+                class: InsnOperandClass::ADDRESS,
+                qualifiers: &[
+                    InsnOperandQualifier::S_S,
+                    InsnOperandQualifier::S_D,
+                    InsnOperandQualifier::S_Q,
+                ],
+                bit_fields: &[
+                    BitfieldSpec {
+                        bitfield: InsnBitField::imm7,
+                        lsb: 15,
+                        width: 7,
+                    },
+                    BitfieldSpec {
+                        bitfield: InsnBitField::index2,
+                        lsb: 24,
+                        width: 1,
+                    },
+                ],
+            },
+        ],
+        flags: InsnFlags::empty(),
+    };
+    pub(crate) fn make_opcode(bits: u32) -> Opcode {
+        Opcode {
+            mnemonic: Mnemonic::r#stp,
+            operation: Operation::LDSTPAIR_OFF(LDSTPAIR_OFF::STP_Ft_Ft2_ADDR_SIMM7(
+                STP_Ft_Ft2_ADDR_SIMM7::from(bits),
             )),
         }
     }
