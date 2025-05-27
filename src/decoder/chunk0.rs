@@ -103,6 +103,7 @@ pub enum Mnemonic {
     r#fcmp,
     r#fcmpe,
     r#fcsel,
+    r#fcvt,
     r#fcvtas,
     r#fcvtau,
     r#fcvtl,
@@ -121,6 +122,7 @@ pub enum Mnemonic {
     r#fcvtzu,
     r#fdiv,
     r#fjcvtzs,
+    r#fmadd,
     r#fmax,
     r#fmaxnm,
     r#fmaxnmp,
@@ -140,9 +142,13 @@ pub enum Mnemonic {
     r#fmlsl,
     r#fmlsl2,
     r#fmov,
+    r#fmsub,
     r#fmul,
     r#fmulx,
     r#fneg,
+    r#fnmadd,
+    r#fnmsub,
+    r#fnmul,
     r#frecpe,
     r#frecps,
     r#frecpx,
@@ -1870,6 +1876,26 @@ pub struct FABD_Sd_S_S_Sn_S_S_Sm_S_S {
 }
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
+pub struct FABS_Fd_Fn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct FABS_Fd_S_S_Fn_S_S {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
 pub struct FABS_Vd_Vn {
     #[bits(5)]
     pub rd: u32,
@@ -1975,34 +2001,6 @@ pub struct FACGT_Sd_Sn_Sm {
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
 pub struct FACGT_Vd_V_2S_Vn_V_2S_Vm_V_2S {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct FACGT_Sd_S_S_Sn_S_S_Sm_S_S {
-    #[bits(5)]
-    pub rd: u32,
-    #[bits(5)]
-    pub rn: u32,
-    #[bits(6)]
-    pub _op_10: u32,
-    #[bits(5)]
-    pub rm: u32,
-    #[bits(11)]
-    pub _op_21: u32,
-}
-#[bitfield(u32)]
-#[derive(PartialEq, Eq)]
-pub struct FADD_Vd_Vn_Vm {
     #[bits(5)]
     pub rd: u32,
     #[bits(5)]

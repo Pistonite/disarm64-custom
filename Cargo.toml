@@ -1,6 +1,6 @@
 [package]
 name = "disarm64-custom"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2024"
 description = "A custom built version of https://github.com/kromych/disarm64"
 license = "MIT"

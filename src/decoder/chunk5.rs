@@ -7,6 +7,648 @@
 use super::*;
 #[bitfield(u32)]
 #[derive(PartialEq, Eq)]
+pub struct STTRH_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STUR_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STUR_Ft_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STURB_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STURH_Rt_ADDR_SIMM9 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STXP_Rs_Rt_Rt2_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(5)]
+    pub _op_5: u32,
+    #[bits(5)]
+    pub rt2: u32,
+    #[bits(1)]
+    pub _op_15: u32,
+    #[bits(5)]
+    pub rs: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STXR_Rs_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(11)]
+    pub _op_5: u32,
+    #[bits(5)]
+    pub rs: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STXRB_Rs_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(11)]
+    pub _op_5: u32,
+    #[bits(5)]
+    pub rs: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STXRH_Rs_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(11)]
+    pub _op_5: u32,
+    #[bits(5)]
+    pub rs: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STZ2G_Rt_SP_ADDR_SIMM13 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STZ2G_Rt_SP_X_ADDR_SIMM13_imm_tag {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STZG_Rt_SP_ADDR_SIMM13 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STZG_Rt_SP_X_ADDR_SIMM13_imm_tag {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(6)]
+    pub _op_5: u32,
+    #[bits(1)]
+    pub index: u32,
+    #[bits(9)]
+    pub imm9: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct STZGM_Rt_ADDR_SIMPLE {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(27)]
+    pub _op_5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUB_Rd_SP_Rn_SP_AIMM {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(12)]
+    pub imm12: u32,
+    #[bits(2)]
+    pub shift: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUB_Rd_Rn_Rm_SFT {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUB_Rd_SP_Rn_SP_Rm_EXT {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUB_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUB_Sd_Sn_Sm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBG_Rd_SP_Rn_SP_UIMM10_UIMM4_ADDG {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(4)]
+    pub imm4_10: u32,
+    #[bits(2)]
+    pub _op_14: u32,
+    #[bits(6)]
+    pub immr: u32,
+    #[bits(10)]
+    pub _op_22: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBHN_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBHN2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBP_Rd_Rn_SP_Rm_SP {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBPS_Rd_Rn_SP_Rm_SP {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBS_Rd_Rn_SP_AIMM {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(12)]
+    pub imm12: u32,
+    #[bits(2)]
+    pub shift: u32,
+    #[bits(8)]
+    pub _op_24: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBS_Rd_Rn_Rm_SFT {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUBS_Rd_Rn_SP_Rm_EXT {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUQADD_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct SUQADD_Sd_Sn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct TBL_Vd_LVn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct TBNZ_Rt_BIT_NUM_ADDR_PCREL14 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(14)]
+    pub imm14: u32,
+    #[bits(5)]
+    pub b40: u32,
+    #[bits(7)]
+    pub _op_24: u32,
+    #[bits(1)]
+    pub b5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct TBX_Vd_LVn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct TBZ_Rt_BIT_NUM_ADDR_PCREL14 {
+    #[bits(5)]
+    pub rt: u32,
+    #[bits(14)]
+    pub imm14: u32,
+    #[bits(5)]
+    pub b40: u32,
+    #[bits(7)]
+    pub _op_24: u32,
+    #[bits(1)]
+    pub b5: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct TRN1_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct TRN2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UABA_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UABAL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UABAL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UABD_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UABDL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UABDL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADALP_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADDL_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADDL2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADDLP_Vd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADDLV_Fd_Vn {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(22)]
+    pub _op_10: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADDW_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UADDW2_Vd_Vn_Vm {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub _op_10: u32,
+    #[bits(5)]
+    pub rm: u32,
+    #[bits(11)]
+    pub _op_21: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
+pub struct UBFM_Rd_Rn_IMMR_IMMS {
+    #[bits(5)]
+    pub rd: u32,
+    #[bits(5)]
+    pub rn: u32,
+    #[bits(6)]
+    pub imm6_10: u32,
+    #[bits(6)]
+    pub immr: u32,
+    #[bits(10)]
+    pub _op_22: u32,
+}
+#[bitfield(u32)]
+#[derive(PartialEq, Eq)]
 pub struct UCVTF_Fd_Rn_FBITS {
     #[bits(5)]
     pub rd: u32,
@@ -1465,557 +2107,4 @@ pub enum ASIMDSAME {
     URHADD_Vd_Vn_Vm(URHADD_Vd_Vn_Vm),
     URSHL_Vd_Vn_Vm(URSHL_Vd_Vn_Vm),
     USHL_Vd_Vn_Vm(USHL_Vd_Vn_Vm),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASIMDSHF {
-    FCVTZS_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S(FCVTZS_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S),
-    FCVTZS_Vd_Vn_IMM_VLSR(FCVTZS_Vd_Vn_IMM_VLSR),
-    FCVTZU_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S(FCVTZU_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S),
-    FCVTZU_Vd_Vn_IMM_VLSR(FCVTZU_Vd_Vn_IMM_VLSR),
-    RSHRN2_Vd_Vn_IMM_VLSR(RSHRN2_Vd_Vn_IMM_VLSR),
-    RSHRN_Vd_Vn_IMM_VLSR(RSHRN_Vd_Vn_IMM_VLSR),
-    SCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S(SCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S),
-    SCVTF_Vd_Vn_IMM_VLSR(SCVTF_Vd_Vn_IMM_VLSR),
-    SHL_Vd_Vn_IMM_VLSL(SHL_Vd_Vn_IMM_VLSL),
-    SHRN2_Vd_Vn_IMM_VLSR(SHRN2_Vd_Vn_IMM_VLSR),
-    SHRN_Vd_Vn_IMM_VLSR(SHRN_Vd_Vn_IMM_VLSR),
-    SLI_Vd_Vn_IMM_VLSL(SLI_Vd_Vn_IMM_VLSL),
-    SQRSHRN2_Vd_Vn_IMM_VLSR(SQRSHRN2_Vd_Vn_IMM_VLSR),
-    SQRSHRN_Vd_Vn_IMM_VLSR(SQRSHRN_Vd_Vn_IMM_VLSR),
-    SQRSHRUN2_Vd_Vn_IMM_VLSR(SQRSHRUN2_Vd_Vn_IMM_VLSR),
-    SQRSHRUN_Vd_Vn_IMM_VLSR(SQRSHRUN_Vd_Vn_IMM_VLSR),
-    SQSHLU_Vd_Vn_IMM_VLSL(SQSHLU_Vd_Vn_IMM_VLSL),
-    SQSHL_Vd_Vn_IMM_VLSL(SQSHL_Vd_Vn_IMM_VLSL),
-    SQSHRN2_Vd_Vn_IMM_VLSR(SQSHRN2_Vd_Vn_IMM_VLSR),
-    SQSHRN_Vd_Vn_IMM_VLSR(SQSHRN_Vd_Vn_IMM_VLSR),
-    SQSHRUN2_Vd_Vn_IMM_VLSR(SQSHRUN2_Vd_Vn_IMM_VLSR),
-    SQSHRUN_Vd_Vn_IMM_VLSR(SQSHRUN_Vd_Vn_IMM_VLSR),
-    SRI_Vd_Vn_IMM_VLSR(SRI_Vd_Vn_IMM_VLSR),
-    SRSHR_Vd_Vn_IMM_VLSR(SRSHR_Vd_Vn_IMM_VLSR),
-    SRSRA_Vd_Vn_IMM_VLSR(SRSRA_Vd_Vn_IMM_VLSR),
-    SSHLL2_Vd_Vn_IMM_VLSL(SSHLL2_Vd_Vn_IMM_VLSL),
-    SSHLL_Vd_Vn_IMM_VLSL(SSHLL_Vd_Vn_IMM_VLSL),
-    SSHR_Vd_Vn_IMM_VLSR(SSHR_Vd_Vn_IMM_VLSR),
-    SSRA_Vd_Vn_IMM_VLSR(SSRA_Vd_Vn_IMM_VLSR),
-    UCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S(UCVTF_Vd_V_2S_Vn_V_2S_IMM_VLSR_V_2S),
-    UCVTF_Vd_Vn_IMM_VLSR(UCVTF_Vd_Vn_IMM_VLSR),
-    UQRSHRN2_Vd_Vn_IMM_VLSR(UQRSHRN2_Vd_Vn_IMM_VLSR),
-    UQRSHRN_Vd_Vn_IMM_VLSR(UQRSHRN_Vd_Vn_IMM_VLSR),
-    UQSHL_Vd_Vn_IMM_VLSL(UQSHL_Vd_Vn_IMM_VLSL),
-    UQSHRN2_Vd_Vn_IMM_VLSR(UQSHRN2_Vd_Vn_IMM_VLSR),
-    UQSHRN_Vd_Vn_IMM_VLSR(UQSHRN_Vd_Vn_IMM_VLSR),
-    URSHR_Vd_Vn_IMM_VLSR(URSHR_Vd_Vn_IMM_VLSR),
-    URSRA_Vd_Vn_IMM_VLSR(URSRA_Vd_Vn_IMM_VLSR),
-    USHLL2_Vd_Vn_IMM_VLSL(USHLL2_Vd_Vn_IMM_VLSL),
-    USHLL_Vd_Vn_IMM_VLSL(USHLL_Vd_Vn_IMM_VLSL),
-    USHR_Vd_Vn_IMM_VLSR(USHR_Vd_Vn_IMM_VLSR),
-    USRA_Vd_Vn_IMM_VLSR(USRA_Vd_Vn_IMM_VLSR),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASIMDTBL {
-    TBL_Vd_LVn_Vm(TBL_Vd_LVn_Vm),
-    TBX_Vd_LVn_Vm(TBX_Vd_LVn_Vm),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDDIFF {
-    SQDMLAL_Sd_Sn_Sm(SQDMLAL_Sd_Sn_Sm),
-    SQDMLSL_Sd_Sn_Sm(SQDMLSL_Sd_Sn_Sm),
-    SQDMULL_Sd_Sn_Sm(SQDMULL_Sd_Sn_Sm),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDELEM {
-    FMLA_Sd_Sn_Em(FMLA_Sd_Sn_Em),
-    FMLA_Sd_Sn_Em16(FMLA_Sd_Sn_Em16),
-    FMLS_Sd_Sn_Em(FMLS_Sd_Sn_Em),
-    FMLS_Sd_Sn_Em16(FMLS_Sd_Sn_Em16),
-    FMULX_Sd_Sn_Em(FMULX_Sd_Sn_Em),
-    FMULX_Sd_Sn_Em16(FMULX_Sd_Sn_Em16),
-    FMUL_Sd_Sn_Em(FMUL_Sd_Sn_Em),
-    FMUL_Sd_Sn_Em16(FMUL_Sd_Sn_Em16),
-    SQDMLAL_Sd_Sn_Em16(SQDMLAL_Sd_Sn_Em16),
-    SQDMLSL_Sd_Sn_Em16(SQDMLSL_Sd_Sn_Em16),
-    SQDMULH_Sd_Sn_Em16(SQDMULH_Sd_Sn_Em16),
-    SQDMULL_Sd_Sn_Em16(SQDMULL_Sd_Sn_Em16),
-    SQRDMLAH_Sd_Sn_Em16(SQRDMLAH_Sd_Sn_Em16),
-    SQRDMLSH_Sd_Sn_Em16(SQRDMLSH_Sd_Sn_Em16),
-    SQRDMULH_Sd_Sn_Em16(SQRDMULH_Sd_Sn_Em16),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDLSE {
-    LD1_LVt_SIMD_ADDR_SIMPLE(LD1_LVt_SIMD_ADDR_SIMPLE),
-    LD2_LVt_SIMD_ADDR_SIMPLE(LD2_LVt_SIMD_ADDR_SIMPLE),
-    LD3_LVt_SIMD_ADDR_SIMPLE(LD3_LVt_SIMD_ADDR_SIMPLE),
-    LD4_LVt_SIMD_ADDR_SIMPLE(LD4_LVt_SIMD_ADDR_SIMPLE),
-    ST1_LVt_SIMD_ADDR_SIMPLE(ST1_LVt_SIMD_ADDR_SIMPLE),
-    ST2_LVt_SIMD_ADDR_SIMPLE(ST2_LVt_SIMD_ADDR_SIMPLE),
-    ST3_LVt_SIMD_ADDR_SIMPLE(ST3_LVt_SIMD_ADDR_SIMPLE),
-    ST4_LVt_SIMD_ADDR_SIMPLE(ST4_LVt_SIMD_ADDR_SIMPLE),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDLSEP {
-    LD1_LVt_SIMD_ADDR_POST(LD1_LVt_SIMD_ADDR_POST),
-    LD2_LVt_SIMD_ADDR_POST(LD2_LVt_SIMD_ADDR_POST),
-    LD3_LVt_SIMD_ADDR_POST(LD3_LVt_SIMD_ADDR_POST),
-    LD4_LVt_SIMD_ADDR_POST(LD4_LVt_SIMD_ADDR_POST),
-    ST1_LVt_SIMD_ADDR_POST(ST1_LVt_SIMD_ADDR_POST),
-    ST2_LVt_SIMD_ADDR_POST(ST2_LVt_SIMD_ADDR_POST),
-    ST3_LVt_SIMD_ADDR_POST(ST3_LVt_SIMD_ADDR_POST),
-    ST4_LVt_SIMD_ADDR_POST(ST4_LVt_SIMD_ADDR_POST),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDLSO {
-    LD1R_LVt_AL_SIMD_ADDR_SIMPLE(LD1R_LVt_AL_SIMD_ADDR_SIMPLE),
-    LD1_LEt_SIMD_ADDR_SIMPLE(LD1_LEt_SIMD_ADDR_SIMPLE),
-    LD2R_LVt_AL_SIMD_ADDR_SIMPLE(LD2R_LVt_AL_SIMD_ADDR_SIMPLE),
-    LD2_LEt_SIMD_ADDR_SIMPLE(LD2_LEt_SIMD_ADDR_SIMPLE),
-    LD3R_LVt_AL_SIMD_ADDR_SIMPLE(LD3R_LVt_AL_SIMD_ADDR_SIMPLE),
-    LD3_LEt_SIMD_ADDR_SIMPLE(LD3_LEt_SIMD_ADDR_SIMPLE),
-    LD4R_LVt_AL_SIMD_ADDR_SIMPLE(LD4R_LVt_AL_SIMD_ADDR_SIMPLE),
-    LD4_LEt_SIMD_ADDR_SIMPLE(LD4_LEt_SIMD_ADDR_SIMPLE),
-    ST1_LEt_SIMD_ADDR_SIMPLE(ST1_LEt_SIMD_ADDR_SIMPLE),
-    ST2_LEt_SIMD_ADDR_SIMPLE(ST2_LEt_SIMD_ADDR_SIMPLE),
-    ST3_LEt_SIMD_ADDR_SIMPLE(ST3_LEt_SIMD_ADDR_SIMPLE),
-    ST4_LEt_SIMD_ADDR_SIMPLE(ST4_LEt_SIMD_ADDR_SIMPLE),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDLSOP {
-    LD1R_LVt_AL_SIMD_ADDR_POST(LD1R_LVt_AL_SIMD_ADDR_POST),
-    LD1_LEt_SIMD_ADDR_POST(LD1_LEt_SIMD_ADDR_POST),
-    LD2R_LVt_AL_SIMD_ADDR_POST(LD2R_LVt_AL_SIMD_ADDR_POST),
-    LD2_LEt_SIMD_ADDR_POST(LD2_LEt_SIMD_ADDR_POST),
-    LD3R_LVt_AL_SIMD_ADDR_POST(LD3R_LVt_AL_SIMD_ADDR_POST),
-    LD3_LEt_SIMD_ADDR_POST(LD3_LEt_SIMD_ADDR_POST),
-    LD4R_LVt_AL_SIMD_ADDR_POST(LD4R_LVt_AL_SIMD_ADDR_POST),
-    LD4_LEt_SIMD_ADDR_POST(LD4_LEt_SIMD_ADDR_POST),
-    ST1_LEt_SIMD_ADDR_POST(ST1_LEt_SIMD_ADDR_POST),
-    ST2_LEt_SIMD_ADDR_POST(ST2_LEt_SIMD_ADDR_POST),
-    ST3_LEt_SIMD_ADDR_POST(ST3_LEt_SIMD_ADDR_POST),
-    ST4_LEt_SIMD_ADDR_POST(ST4_LEt_SIMD_ADDR_POST),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDMISC {
-    ABS_Sd_Sn(ABS_Sd_Sn),
-    CMEQ_Sd_Sn_IMM0(CMEQ_Sd_Sn_IMM0),
-    CMGE_Sd_Sn_IMM0(CMGE_Sd_Sn_IMM0),
-    CMGT_Sd_Sn_IMM0(CMGT_Sd_Sn_IMM0),
-    CMLE_Sd_Sn_IMM0(CMLE_Sd_Sn_IMM0),
-    CMLT_Sd_Sn_IMM0(CMLT_Sd_Sn_IMM0),
-    FCMEQ_Sd_S_H_Sn_S_H_FPIMM0(FCMEQ_Sd_S_H_Sn_S_H_FPIMM0),
-    FCMEQ_Sd_Sn_FPIMM0(FCMEQ_Sd_Sn_FPIMM0),
-    FCMGE_Sd_S_H_Sn_S_H_FPIMM0(FCMGE_Sd_S_H_Sn_S_H_FPIMM0),
-    FCMGE_Sd_Sn_FPIMM0(FCMGE_Sd_Sn_FPIMM0),
-    FCMGT_Sd_S_H_Sn_S_H_FPIMM0(FCMGT_Sd_S_H_Sn_S_H_FPIMM0),
-    FCMGT_Sd_Sn_FPIMM0(FCMGT_Sd_Sn_FPIMM0),
-    FCMLE_Sd_S_H_Sn_S_H_FPIMM0(FCMLE_Sd_S_H_Sn_S_H_FPIMM0),
-    FCMLE_Sd_Sn_FPIMM0(FCMLE_Sd_Sn_FPIMM0),
-    FCMLT_Sd_S_H_Sn_S_H_FPIMM0(FCMLT_Sd_S_H_Sn_S_H_FPIMM0),
-    FCMLT_Sd_Sn_FPIMM0(FCMLT_Sd_Sn_FPIMM0),
-    FCVTAS_Sd_S_H_Sn_S_H(FCVTAS_Sd_S_H_Sn_S_H),
-    FCVTAS_Sd_Sn(FCVTAS_Sd_Sn),
-    FCVTAU_Sd_S_H_Sn_S_H(FCVTAU_Sd_S_H_Sn_S_H),
-    FCVTAU_Sd_Sn(FCVTAU_Sd_Sn),
-    FCVTMS_Sd_S_H_Sn_S_H(FCVTMS_Sd_S_H_Sn_S_H),
-    FCVTMS_Sd_Sn(FCVTMS_Sd_Sn),
-    FCVTMU_Sd_S_H_Sn_S_H(FCVTMU_Sd_S_H_Sn_S_H),
-    FCVTMU_Sd_Sn(FCVTMU_Sd_Sn),
-    FCVTNS_Sd_S_H_Sn_S_H(FCVTNS_Sd_S_H_Sn_S_H),
-    FCVTNS_Sd_Sn(FCVTNS_Sd_Sn),
-    FCVTNU_Sd_S_H_Sn_S_H(FCVTNU_Sd_S_H_Sn_S_H),
-    FCVTNU_Sd_Sn(FCVTNU_Sd_Sn),
-    FCVTPS_Sd_S_H_Sn_S_H(FCVTPS_Sd_S_H_Sn_S_H),
-    FCVTPS_Sd_Sn(FCVTPS_Sd_Sn),
-    FCVTPU_Sd_S_H_Sn_S_H(FCVTPU_Sd_S_H_Sn_S_H),
-    FCVTPU_Sd_Sn(FCVTPU_Sd_Sn),
-    FCVTXN_Sd_Sn(FCVTXN_Sd_Sn),
-    FCVTZS_Sd_S_H_Sn_S_H(FCVTZS_Sd_S_H_Sn_S_H),
-    FCVTZS_Sd_Sn(FCVTZS_Sd_Sn),
-    FCVTZU_Sd_S_H_Sn_S_H(FCVTZU_Sd_S_H_Sn_S_H),
-    FCVTZU_Sd_Sn(FCVTZU_Sd_Sn),
-    FRECPE_Sd_S_H_Sn_S_H(FRECPE_Sd_S_H_Sn_S_H),
-    FRECPE_Sd_Sn(FRECPE_Sd_Sn),
-    FRECPX_Sd_S_H_Sn_S_H(FRECPX_Sd_S_H_Sn_S_H),
-    FRECPX_Sd_Sn(FRECPX_Sd_Sn),
-    FRSQRTE_Sd_S_H_Sn_S_H(FRSQRTE_Sd_S_H_Sn_S_H),
-    FRSQRTE_Sd_Sn(FRSQRTE_Sd_Sn),
-    NEG_Sd_Sn(NEG_Sd_Sn),
-    SCVTF_Sd_S_H_Sn_S_H(SCVTF_Sd_S_H_Sn_S_H),
-    SCVTF_Sd_Sn(SCVTF_Sd_Sn),
-    SQABS_Sd_Sn(SQABS_Sd_Sn),
-    SQNEG_Sd_Sn(SQNEG_Sd_Sn),
-    SQXTN_Sd_Sn(SQXTN_Sd_Sn),
-    SQXTUN_Sd_Sn(SQXTUN_Sd_Sn),
-    SUQADD_Sd_Sn(SUQADD_Sd_Sn),
-    UCVTF_Sd_S_H_Sn_S_H(UCVTF_Sd_S_H_Sn_S_H),
-    UCVTF_Sd_Sn(UCVTF_Sd_Sn),
-    UQXTN_Sd_Sn(UQXTN_Sd_Sn),
-    USQADD_Sd_Sn(USQADD_Sd_Sn),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDONE {
-    DUP_Sd_En(DUP_Sd_En),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDPAIR {
-    ADDP_Sd_Vn(ADDP_Sd_Vn),
-    FADDP_Sd_S_S_Vn_V_2S(FADDP_Sd_S_S_Vn_V_2S),
-    FADDP_Sd_Vn(FADDP_Sd_Vn),
-    FMAXNMP_Sd_S_S_Vn_V_2S(FMAXNMP_Sd_S_S_Vn_V_2S),
-    FMAXNMP_Sd_Vn(FMAXNMP_Sd_Vn),
-    FMAXP_Sd_S_S_Vn_V_2S(FMAXP_Sd_S_S_Vn_V_2S),
-    FMAXP_Sd_Vn(FMAXP_Sd_Vn),
-    FMINNMP_Sd_S_S_Vn_V_2S(FMINNMP_Sd_S_S_Vn_V_2S),
-    FMINNMP_Sd_Vn(FMINNMP_Sd_Vn),
-    FMINP_Sd_S_S_Vn_V_2S(FMINP_Sd_S_S_Vn_V_2S),
-    FMINP_Sd_Vn(FMINP_Sd_Vn),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDSAME {
-    ADD_Sd_Sn_Sm(ADD_Sd_Sn_Sm),
-    CMEQ_Sd_Sn_Sm(CMEQ_Sd_Sn_Sm),
-    CMGE_Sd_Sn_Sm(CMGE_Sd_Sn_Sm),
-    CMGT_Sd_Sn_Sm(CMGT_Sd_Sn_Sm),
-    CMHI_Sd_Sn_Sm(CMHI_Sd_Sn_Sm),
-    CMHS_Sd_Sn_Sm(CMHS_Sd_Sn_Sm),
-    CMTST_Sd_Sn_Sm(CMTST_Sd_Sn_Sm),
-    FABD_Sd_S_S_Sn_S_S_Sm_S_S(FABD_Sd_S_S_Sn_S_S_Sm_S_S),
-    FABD_Sd_Sn_Sm(FABD_Sd_Sn_Sm),
-    FACGE_Sd_S_S_Sn_S_S_Sm_S_S(FACGE_Sd_S_S_Sn_S_S_Sm_S_S),
-    FACGE_Sd_Sn_Sm(FACGE_Sd_Sn_Sm),
-    FACGT_Sd_S_S_Sn_S_S_Sm_S_S(FACGT_Sd_S_S_Sn_S_S_Sm_S_S),
-    FACGT_Sd_Sn_Sm(FACGT_Sd_Sn_Sm),
-    FCMEQ_Sd_S_S_Sn_S_S_Sm_S_S(FCMEQ_Sd_S_S_Sn_S_S_Sm_S_S),
-    FCMEQ_Sd_Sn_Sm(FCMEQ_Sd_Sn_Sm),
-    FCMGE_Sd_S_S_Sn_S_S_Sm_S_S(FCMGE_Sd_S_S_Sn_S_S_Sm_S_S),
-    FCMGE_Sd_Sn_Sm(FCMGE_Sd_Sn_Sm),
-    FCMGT_Sd_S_S_Sn_S_S_Sm_S_S(FCMGT_Sd_S_S_Sn_S_S_Sm_S_S),
-    FCMGT_Sd_Sn_Sm(FCMGT_Sd_Sn_Sm),
-    FMULX_Sd_S_S_Sn_S_S_Sm_S_S(FMULX_Sd_S_S_Sn_S_S_Sm_S_S),
-    FMULX_Sd_Sn_Sm(FMULX_Sd_Sn_Sm),
-    FRECPS_Sd_S_S_Sn_S_S_Sm_S_S(FRECPS_Sd_S_S_Sn_S_S_Sm_S_S),
-    FRECPS_Sd_Sn_Sm(FRECPS_Sd_Sn_Sm),
-    FRSQRTS_Sd_S_S_Sn_S_S_Sm_S_S(FRSQRTS_Sd_S_S_Sn_S_S_Sm_S_S),
-    FRSQRTS_Sd_Sn_Sm(FRSQRTS_Sd_Sn_Sm),
-    SQADD_Sd_Sn_Sm(SQADD_Sd_Sn_Sm),
-    SQDMULH_Sd_Sn_Sm(SQDMULH_Sd_Sn_Sm),
-    SQRDMULH_Sd_Sn_Sm(SQRDMULH_Sd_Sn_Sm),
-    SQRSHL_Sd_Sn_Sm(SQRSHL_Sd_Sn_Sm),
-    SQSHL_Sd_Sn_Sm(SQSHL_Sd_Sn_Sm),
-    SQSUB_Sd_Sn_Sm(SQSUB_Sd_Sn_Sm),
-    SRSHL_Sd_Sn_Sm(SRSHL_Sd_Sn_Sm),
-    SSHL_Sd_Sn_Sm(SSHL_Sd_Sn_Sm),
-    SUB_Sd_Sn_Sm(SUB_Sd_Sn_Sm),
-    UQADD_Sd_Sn_Sm(UQADD_Sd_Sn_Sm),
-    UQRSHL_Sd_Sn_Sm(UQRSHL_Sd_Sn_Sm),
-    UQSHL_Sd_Sn_Sm(UQSHL_Sd_Sn_Sm),
-    UQSUB_Sd_Sn_Sm(UQSUB_Sd_Sn_Sm),
-    URSHL_Sd_Sn_Sm(URSHL_Sd_Sn_Sm),
-    USHL_Sd_Sn_Sm(USHL_Sd_Sn_Sm),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum ASISDSHF {
-    FCVTZS_Sd_S_S_Sn_S_S_IMM_VLSR_S_S(FCVTZS_Sd_S_S_Sn_S_S_IMM_VLSR_S_S),
-    FCVTZS_Sd_Sn_IMM_VLSR(FCVTZS_Sd_Sn_IMM_VLSR),
-    FCVTZU_Sd_S_S_Sn_S_S_IMM_VLSR_S_S(FCVTZU_Sd_S_S_Sn_S_S_IMM_VLSR_S_S),
-    FCVTZU_Sd_Sn_IMM_VLSR(FCVTZU_Sd_Sn_IMM_VLSR),
-    SCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S(SCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S),
-    SCVTF_Sd_Sn_IMM_VLSR(SCVTF_Sd_Sn_IMM_VLSR),
-    SHL_Sd_Sn_IMM_VLSL(SHL_Sd_Sn_IMM_VLSL),
-    SLI_Sd_Sn_IMM_VLSL(SLI_Sd_Sn_IMM_VLSL),
-    SQRSHRN_Sd_Sn_IMM_VLSR(SQRSHRN_Sd_Sn_IMM_VLSR),
-    SQRSHRUN_Sd_Sn_IMM_VLSR(SQRSHRUN_Sd_Sn_IMM_VLSR),
-    SQSHLU_Sd_Sn_IMM_VLSL(SQSHLU_Sd_Sn_IMM_VLSL),
-    SQSHL_Sd_Sn_IMM_VLSL(SQSHL_Sd_Sn_IMM_VLSL),
-    SQSHRN_Sd_Sn_IMM_VLSR(SQSHRN_Sd_Sn_IMM_VLSR),
-    SQSHRUN_Sd_Sn_IMM_VLSR(SQSHRUN_Sd_Sn_IMM_VLSR),
-    SRI_Sd_Sn_IMM_VLSR(SRI_Sd_Sn_IMM_VLSR),
-    SRSHR_Sd_Sn_IMM_VLSR(SRSHR_Sd_Sn_IMM_VLSR),
-    SRSRA_Sd_Sn_IMM_VLSR(SRSRA_Sd_Sn_IMM_VLSR),
-    SSHR_Sd_Sn_IMM_VLSR(SSHR_Sd_Sn_IMM_VLSR),
-    SSRA_Sd_Sn_IMM_VLSR(SSRA_Sd_Sn_IMM_VLSR),
-    UCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S(UCVTF_Sd_S_S_Sn_S_S_IMM_VLSR_S_S),
-    UCVTF_Sd_Sn_IMM_VLSR(UCVTF_Sd_Sn_IMM_VLSR),
-    UQRSHRN_Sd_Sn_IMM_VLSR(UQRSHRN_Sd_Sn_IMM_VLSR),
-    UQSHL_Sd_Sn_IMM_VLSL(UQSHL_Sd_Sn_IMM_VLSL),
-    UQSHRN_Sd_Sn_IMM_VLSR(UQSHRN_Sd_Sn_IMM_VLSR),
-    URSHR_Sd_Sn_IMM_VLSR(URSHR_Sd_Sn_IMM_VLSR),
-    URSRA_Sd_Sn_IMM_VLSR(URSRA_Sd_Sn_IMM_VLSR),
-    USHR_Sd_Sn_IMM_VLSR(USHR_Sd_Sn_IMM_VLSR),
-    USRA_Sd_Sn_IMM_VLSR(USRA_Sd_Sn_IMM_VLSR),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum BITFIELD {
-    BFM_Rd_Rn_IMMR_IMMS(BFM_Rd_Rn_IMMR_IMMS),
-    SBFM_Rd_Rn_IMMR_IMMS(SBFM_Rd_Rn_IMMR_IMMS),
-    UBFM_Rd_Rn_IMMR_IMMS(UBFM_Rd_Rn_IMMR_IMMS),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum BRANCH_IMM {
-    BL_ADDR_PCREL26(BL_ADDR_PCREL26),
-    B_ADDR_PCREL26(B_ADDR_PCREL26),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum BRANCH_REG {
-    BLRAAZ_Rn(BLRAAZ_Rn),
-    BLRAA_Rn_Rd_SP(BLRAA_Rn_Rd_SP),
-    BLRABZ_Rn(BLRABZ_Rn),
-    BLRAB_Rn_Rd_SP(BLRAB_Rn_Rd_SP),
-    BLR_Rn(BLR_Rn),
-    BRAAZ_Rn(BRAAZ_Rn),
-    BRAA_Rn_Rd_SP(BRAA_Rn_Rd_SP),
-    BRABZ_Rn(BRABZ_Rn),
-    BRAB_Rn_Rd_SP(BRAB_Rn_Rd_SP),
-    BR_Rn(BR_Rn),
-    DRPS(DRPS),
-    ERET(ERET),
-    ERETAA(ERETAA),
-    ERETAB(ERETAB),
-    RETAA(RETAA),
-    RETAB(RETAB),
-    RET_Rn(RET_Rn),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum COMPBRANCH {
-    CBNZ_Rt_ADDR_PCREL19(CBNZ_Rt_ADDR_PCREL19),
-    CBZ_Rt_ADDR_PCREL19(CBZ_Rt_ADDR_PCREL19),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum CONDBRANCH {
-    BC__ADDR_PCREL19(BC__ADDR_PCREL19),
-    B__ADDR_PCREL19(B__ADDR_PCREL19),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum CONDCMP_IMM {
-    CCMN_Rn_CCMP_IMM_NZCV_COND(CCMN_Rn_CCMP_IMM_NZCV_COND),
-    CCMP_Rn_CCMP_IMM_NZCV_COND(CCMP_Rn_CCMP_IMM_NZCV_COND),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum CONDCMP_REG {
-    CCMN_Rn_Rm_NZCV_COND(CCMN_Rn_Rm_NZCV_COND),
-    CCMP_Rn_Rm_NZCV_COND(CCMP_Rn_Rm_NZCV_COND),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum CONDSEL {
-    CSEL_Rd_Rn_Rm_COND(CSEL_Rd_Rn_Rm_COND),
-    CSINC_Rd_Rn_Rm_COND(CSINC_Rd_Rn_Rm_COND),
-    CSINV_Rd_Rn_Rm_COND(CSINV_Rd_Rn_Rm_COND),
-    CSNEG_Rd_Rn_Rm_COND(CSNEG_Rd_Rn_Rm_COND),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum DP_1SRC {
-    AUTDA_Rd_Rn_SP(AUTDA_Rd_Rn_SP),
-    AUTDB_Rd_Rn_SP(AUTDB_Rd_Rn_SP),
-    AUTDZA_Rd(AUTDZA_Rd),
-    AUTDZB_Rd(AUTDZB_Rd),
-    AUTIA_Rd_Rn_SP(AUTIA_Rd_Rn_SP),
-    AUTIB_Rd_Rn_SP(AUTIB_Rd_Rn_SP),
-    AUTIZA_Rd(AUTIZA_Rd),
-    AUTIZB_Rd(AUTIZB_Rd),
-    CLS_Rd_Rn(CLS_Rd_Rn),
-    CLZ_Rd_Rn(CLZ_Rd_Rn),
-    PACDA_Rd_Rn_SP(PACDA_Rd_Rn_SP),
-    PACDB_Rd_Rn_SP(PACDB_Rd_Rn_SP),
-    PACDZA_Rd(PACDZA_Rd),
-    PACDZB_Rd(PACDZB_Rd),
-    PACIA_Rd_Rn_SP(PACIA_Rd_Rn_SP),
-    PACIB_Rd_Rn_SP(PACIB_Rd_Rn_SP),
-    PACIZA_Rd(PACIZA_Rd),
-    PACIZB_Rd(PACIZB_Rd),
-    RBIT_Rd_Rn(RBIT_Rd_Rn),
-    REV16_Rd_Rn(REV16_Rd_Rn),
-    REV32_Rd_Rn(REV32_Rd_Rn),
-    REV_Rd_Rn(REV_Rd_Rn),
-    REV_Rd_X_Rn_X(REV_Rd_X_Rn_X),
-    XPACD_Rd(XPACD_Rd),
-    XPACI_Rd(XPACI_Rd),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum DP_2SRC {
-    ASRV_Rd_Rn_Rm(ASRV_Rd_Rn_Rm),
-    CRC32B_Rd_Rn_Rm(CRC32B_Rd_Rn_Rm),
-    CRC32CB_Rd_Rn_Rm(CRC32CB_Rd_Rn_Rm),
-    CRC32CH_Rd_Rn_Rm(CRC32CH_Rd_Rn_Rm),
-    CRC32CW_Rd_Rn_Rm(CRC32CW_Rd_Rn_Rm),
-    CRC32CX_Rd_Rn_Rm(CRC32CX_Rd_Rn_Rm),
-    CRC32H_Rd_Rn_Rm(CRC32H_Rd_Rn_Rm),
-    CRC32W_Rd_Rn_Rm(CRC32W_Rd_Rn_Rm),
-    CRC32X_Rd_Rn_Rm(CRC32X_Rd_Rn_Rm),
-    GMI_Rd_Rn_SP_Rm(GMI_Rd_Rn_SP_Rm),
-    IRG_Rd_SP_Rn_SP_Rm(IRG_Rd_SP_Rn_SP_Rm),
-    LSLV_Rd_Rn_Rm(LSLV_Rd_Rn_Rm),
-    LSRV_Rd_Rn_Rm(LSRV_Rd_Rn_Rm),
-    PACGA_Rd_Rn_Rm_SP(PACGA_Rd_Rn_Rm_SP),
-    RORV_Rd_Rn_Rm(RORV_Rd_Rn_Rm),
-    SDIV_Rd_Rn_Rm(SDIV_Rd_Rn_Rm),
-    SUBPS_Rd_Rn_SP_Rm_SP(SUBPS_Rd_Rn_SP_Rm_SP),
-    SUBP_Rd_Rn_SP_Rm_SP(SUBP_Rd_Rn_SP_Rm_SP),
-    UDIV_Rd_Rn_Rm(UDIV_Rd_Rn_Rm),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum DP_3SRC {
-    MADD_Rd_Rn_Rm_Ra(MADD_Rd_Rn_Rm_Ra),
-    MSUB_Rd_Rn_Rm_Ra(MSUB_Rd_Rn_Rm_Ra),
-    SMADDL_Rd_Rn_Rm_Ra(SMADDL_Rd_Rn_Rm_Ra),
-    SMSUBL_Rd_Rn_Rm_Ra(SMSUBL_Rd_Rn_Rm_Ra),
-    SMULH_Rd_Rn_Rm(SMULH_Rd_Rn_Rm),
-    UMADDL_Rd_Rn_Rm_Ra(UMADDL_Rd_Rn_Rm_Ra),
-    UMSUBL_Rd_Rn_Rm_Ra(UMSUBL_Rd_Rn_Rm_Ra),
-    UMULH_Rd_Rn_Rm(UMULH_Rd_Rn_Rm),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum FLOAT2FIX {
-    FCVTZS_Rd_Fn_FBITS(FCVTZS_Rd_Fn_FBITS),
-    FCVTZS_Rd_W_Fn_S_D_FBITS_imm_1_32(FCVTZS_Rd_W_Fn_S_D_FBITS_imm_1_32),
-    FCVTZU_Rd_Fn_FBITS(FCVTZU_Rd_Fn_FBITS),
-    FCVTZU_Rd_W_Fn_S_D_FBITS_imm_1_32(FCVTZU_Rd_W_Fn_S_D_FBITS_imm_1_32),
-    SCVTF_Fd_Rn_FBITS(SCVTF_Fd_Rn_FBITS),
-    SCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32(SCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32),
-    UCVTF_Fd_Rn_FBITS(UCVTF_Fd_Rn_FBITS),
-    UCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32(UCVTF_Fd_S_D_Rn_W_FBITS_imm_1_32),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum FLOAT2INT {
-    FCVTAS_Rd_Fn(FCVTAS_Rd_Fn),
-    FCVTAS_Rd_W_Fn_S_D(FCVTAS_Rd_W_Fn_S_D),
-    FCVTAU_Rd_Fn(FCVTAU_Rd_Fn),
-    FCVTAU_Rd_W_Fn_S_D(FCVTAU_Rd_W_Fn_S_D),
-    FCVTMS_Rd_Fn(FCVTMS_Rd_Fn),
-    FCVTMS_Rd_W_Fn_S_D(FCVTMS_Rd_W_Fn_S_D),
-    FCVTMU_Rd_Fn(FCVTMU_Rd_Fn),
-    FCVTMU_Rd_W_Fn_S_D(FCVTMU_Rd_W_Fn_S_D),
-    FCVTNS_Rd_Fn(FCVTNS_Rd_Fn),
-    FCVTNS_Rd_W_Fn_S_D(FCVTNS_Rd_W_Fn_S_D),
-    FCVTNU_Rd_Fn(FCVTNU_Rd_Fn),
-    FCVTNU_Rd_W_Fn_S_D(FCVTNU_Rd_W_Fn_S_D),
-    FCVTPS_Rd_Fn(FCVTPS_Rd_Fn),
-    FCVTPS_Rd_W_Fn_S_D(FCVTPS_Rd_W_Fn_S_D),
-    FCVTPU_Rd_Fn(FCVTPU_Rd_Fn),
-    FCVTPU_Rd_W_Fn_S_D(FCVTPU_Rd_W_Fn_S_D),
-    FCVTZS_Rd_Fn(FCVTZS_Rd_Fn),
-    FCVTZS_Rd_W_Fn_S_D(FCVTZS_Rd_W_Fn_S_D),
-    FCVTZU_Rd_Fn(FCVTZU_Rd_Fn),
-    FCVTZU_Rd_W_Fn_S_D(FCVTZU_Rd_W_Fn_S_D),
-    FJCVTZS_Rd_Fn(FJCVTZS_Rd_Fn),
-    FMOV_Fd_Rn(FMOV_Fd_Rn),
-    FMOV_Fd_S_S_Rn_W(FMOV_Fd_S_S_Rn_W),
-    FMOV_Rd_Fn(FMOV_Rd_Fn),
-    FMOV_Rd_VnD1(FMOV_Rd_VnD1),
-    FMOV_Rd_W_Fn_S_S(FMOV_Rd_W_Fn_S_S),
-    FMOV_VdD1_Rn(FMOV_VdD1_Rn),
-    SCVTF_Fd_Rn(SCVTF_Fd_Rn),
-    SCVTF_Fd_S_D_Rn_W(SCVTF_Fd_S_D_Rn_W),
-    UCVTF_Fd_Rn(UCVTF_Fd_Rn),
-    UCVTF_Fd_S_D_Rn_W(UCVTF_Fd_S_D_Rn_W),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum FLOATCCMP {
-    FCCMPE_Fn_Fm_NZCV_COND(FCCMPE_Fn_Fm_NZCV_COND),
-    FCCMPE_Fn_S_S_Fm_S_S_NZCV_COND(FCCMPE_Fn_S_S_Fm_S_S_NZCV_COND),
-    FCCMP_Fn_Fm_NZCV_COND(FCCMP_Fn_Fm_NZCV_COND),
-    FCCMP_Fn_S_S_Fm_S_S_NZCV_COND(FCCMP_Fn_S_S_Fm_S_S_NZCV_COND),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum FLOATCMP {
-    FCMPE_Fn_FPIMM0(FCMPE_Fn_FPIMM0),
-    FCMPE_Fn_Fm(FCMPE_Fn_Fm),
-    FCMPE_Fn_S_S_FPIMM0(FCMPE_Fn_S_S_FPIMM0),
-    FCMPE_Fn_S_S_Fm_S_S(FCMPE_Fn_S_S_Fm_S_S),
-    FCMP_Fn_FPIMM0(FCMP_Fn_FPIMM0),
-    FCMP_Fn_Fm(FCMP_Fn_Fm),
-    FCMP_Fn_S_S_FPIMM0(FCMP_Fn_S_S_FPIMM0),
-    FCMP_Fn_S_S_Fm_S_S(FCMP_Fn_S_S_Fm_S_S),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum FLOATIMM {
-    FMOV_Fd_FPIMM(FMOV_Fd_FPIMM),
-    FMOV_Fd_S_S_FPIMM(FMOV_Fd_S_S_FPIMM),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum FLOATSEL {
-    FCSEL_Fd_Fn_Fm_COND(FCSEL_Fd_Fn_Fm_COND),
-    FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND(FCSEL_Fd_S_S_Fn_S_S_Fm_S_S_COND),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDSTEXCL {
-    LDAPRB_Rt_ADDR_SIMPLE(LDAPRB_Rt_ADDR_SIMPLE),
-    LDAPRH_Rt_ADDR_SIMPLE(LDAPRH_Rt_ADDR_SIMPLE),
-    LDAPR_Rt_ADDR_SIMPLE(LDAPR_Rt_ADDR_SIMPLE),
-    LDARB_Rt_ADDR_SIMPLE(LDARB_Rt_ADDR_SIMPLE),
-    LDARH_Rt_ADDR_SIMPLE(LDARH_Rt_ADDR_SIMPLE),
-    LDAR_Rt_ADDR_SIMPLE(LDAR_Rt_ADDR_SIMPLE),
-    LDAXP_Rt_Rt2_ADDR_SIMPLE(LDAXP_Rt_Rt2_ADDR_SIMPLE),
-    LDAXRB_Rt_ADDR_SIMPLE(LDAXRB_Rt_ADDR_SIMPLE),
-    LDAXRH_Rt_ADDR_SIMPLE(LDAXRH_Rt_ADDR_SIMPLE),
-    LDAXR_Rt_ADDR_SIMPLE(LDAXR_Rt_ADDR_SIMPLE),
-    LDGM_Rt_ADDR_SIMPLE(LDGM_Rt_ADDR_SIMPLE),
-    LDLARB_Rt_ADDR_SIMPLE(LDLARB_Rt_ADDR_SIMPLE),
-    LDLARH_Rt_ADDR_SIMPLE(LDLARH_Rt_ADDR_SIMPLE),
-    LDLAR_Rt_ADDR_SIMPLE(LDLAR_Rt_ADDR_SIMPLE),
-    LDXP_Rt_Rt2_ADDR_SIMPLE(LDXP_Rt_Rt2_ADDR_SIMPLE),
-    LDXRB_Rt_ADDR_SIMPLE(LDXRB_Rt_ADDR_SIMPLE),
-    LDXRH_Rt_ADDR_SIMPLE(LDXRH_Rt_ADDR_SIMPLE),
-    LDXR_Rt_ADDR_SIMPLE(LDXR_Rt_ADDR_SIMPLE),
-    STGM_Rt_ADDR_SIMPLE(STGM_Rt_ADDR_SIMPLE),
-    STLLRB_Rt_ADDR_SIMPLE(STLLRB_Rt_ADDR_SIMPLE),
-    STLLRH_Rt_ADDR_SIMPLE(STLLRH_Rt_ADDR_SIMPLE),
-    STLLR_Rt_ADDR_SIMPLE(STLLR_Rt_ADDR_SIMPLE),
-    STLRB_Rt_ADDR_SIMPLE(STLRB_Rt_ADDR_SIMPLE),
-    STLRH_Rt_ADDR_SIMPLE(STLRH_Rt_ADDR_SIMPLE),
-    STLR_Rt_ADDR_SIMPLE(STLR_Rt_ADDR_SIMPLE),
-    STLXP_Rs_Rt_Rt2_ADDR_SIMPLE(STLXP_Rs_Rt_Rt2_ADDR_SIMPLE),
-    STLXRB_Rs_Rt_ADDR_SIMPLE(STLXRB_Rs_Rt_ADDR_SIMPLE),
-    STLXRH_Rs_Rt_ADDR_SIMPLE(STLXRH_Rs_Rt_ADDR_SIMPLE),
-    STLXR_Rs_Rt_ADDR_SIMPLE(STLXR_Rs_Rt_ADDR_SIMPLE),
-    STXP_Rs_Rt_Rt2_ADDR_SIMPLE(STXP_Rs_Rt_Rt2_ADDR_SIMPLE),
-    STXRB_Rs_Rt_ADDR_SIMPLE(STXRB_Rs_Rt_ADDR_SIMPLE),
-    STXRH_Rs_Rt_ADDR_SIMPLE(STXRH_Rs_Rt_ADDR_SIMPLE),
-    STXR_Rs_Rt_ADDR_SIMPLE(STXR_Rs_Rt_ADDR_SIMPLE),
-    STZGM_Rt_ADDR_SIMPLE(STZGM_Rt_ADDR_SIMPLE),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDSTNAPAIR_OFFS {
-    LDNP_Ft_Ft2_ADDR_SIMM7(LDNP_Ft_Ft2_ADDR_SIMM7),
-    LDNP_Rt_Rt2_ADDR_SIMM7(LDNP_Rt_Rt2_ADDR_SIMM7),
-    STNP_Ft_Ft2_ADDR_SIMM7(STNP_Ft_Ft2_ADDR_SIMM7),
-    STNP_Rt_Rt2_ADDR_SIMM7(STNP_Rt_Rt2_ADDR_SIMM7),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDSTPAIR_INDEXED {
-    LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S(LDPSW_Rt_X_Rt2_X_ADDR_SIMM7_S_S),
-    LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(LDP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S),
-    LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(LDP_Rt_W_Rt2_W_ADDR_SIMM7_S_S),
-    STGP_Rt_X_Rt2_X_ADDR_SIMM11_imm_tag(STGP_Rt_X_Rt2_X_ADDR_SIMM11_imm_tag),
-    STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S(STP_Ft_S_S_Ft2_S_S_ADDR_SIMM7_S_S),
-    STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S(STP_Rt_W_Rt2_W_ADDR_SIMM7_S_S),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDSTPAIR_OFF {
-    LDPSW_Rt_Rt2_ADDR_SIMM7(LDPSW_Rt_Rt2_ADDR_SIMM7),
-    LDP_Ft_Ft2_ADDR_SIMM7(LDP_Ft_Ft2_ADDR_SIMM7),
-    LDP_Rt_Rt2_ADDR_SIMM7(LDP_Rt_Rt2_ADDR_SIMM7),
-    STGP_Rt_Rt2_ADDR_SIMM11(STGP_Rt_Rt2_ADDR_SIMM11),
-    STP_Ft_Ft2_ADDR_SIMM7(STP_Ft_Ft2_ADDR_SIMM7),
-    STP_Rt_Rt2_ADDR_SIMM7(STP_Rt_Rt2_ADDR_SIMM7),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDST_IMM10 {
-    LDRAA_Rt_ADDR_SIMM10(LDRAA_Rt_ADDR_SIMM10),
-    LDRAB_Rt_ADDR_SIMM10(LDRAB_Rt_ADDR_SIMM10),
-}
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
-pub enum LDST_IMM9 {
-    LDRB_Rt_ADDR_SIMM9(LDRB_Rt_ADDR_SIMM9),
-    LDRH_Rt_ADDR_SIMM9(LDRH_Rt_ADDR_SIMM9),
-    LDRSB_Rt_ADDR_SIMM9(LDRSB_Rt_ADDR_SIMM9),
-    LDRSH_Rt_ADDR_SIMM9(LDRSH_Rt_ADDR_SIMM9),
-    LDRSW_Rt_ADDR_SIMM9(LDRSW_Rt_ADDR_SIMM9),
-    LDR_Ft_ADDR_SIMM9(LDR_Ft_ADDR_SIMM9),
-    LDR_Rt_ADDR_SIMM9(LDR_Rt_ADDR_SIMM9),
-    ST2G_Rt_SP_X_ADDR_SIMM13_imm_tag(ST2G_Rt_SP_X_ADDR_SIMM13_imm_tag),
-    STG_Rt_SP_X_ADDR_SIMM13_imm_tag(STG_Rt_SP_X_ADDR_SIMM13_imm_tag),
-    STRB_Rt_ADDR_SIMM9(STRB_Rt_ADDR_SIMM9),
-    STRH_Rt_ADDR_SIMM9(STRH_Rt_ADDR_SIMM9),
-    STR_Ft_ADDR_SIMM9(STR_Ft_ADDR_SIMM9),
-    STR_Rt_ADDR_SIMM9(STR_Rt_ADDR_SIMM9),
-    STZ2G_Rt_SP_X_ADDR_SIMM13_imm_tag(STZ2G_Rt_SP_X_ADDR_SIMM13_imm_tag),
-    STZG_Rt_SP_X_ADDR_SIMM13_imm_tag(STZG_Rt_SP_X_ADDR_SIMM13_imm_tag),
 }
